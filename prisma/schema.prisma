@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model FinanceProfile {
+  id                             String   @id @default(cuid())
+  name                           String
+  mobile                         String
+  email                          String
+  presonal_id                    String
+  city                           String
+  resident                       String
+  work_sector                    String
+  salary                         Int
+  bank                           String
+  do_you_have_a_mortgage         Boolean
+  do_you_have_traffic_violations Boolean
+  do_you_have_a_stumbling_block  Boolean
+  do_you_have_Visa_installments  Boolean
+  do_you_have_a_personal_loan    Boolean
+  do_you_have_car_installment    Boolean
+  car                            FundCar?
+  do_you_accept_trems_and_bolice Boolean
+  created_at                     DateTime @default(now())
+  updated_at                     DateTime @updatedAt
+}
+
+enum VehicleClass {
+  STANDARD
+  SEMIFULL
+  FULL
+}
+
+model FundCar {
+  id                  String         @id @default(uuid())
+  vehicleClass        VehicleClass
+  year_of_manufacture Int
+  brand               String
+  model               String
+  financeProfileId    String         @unique
+  financeProfile      FinanceProfile @relation(fields: [financeProfileId], references: [id])
+}
+
+// User model
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?   @default("https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png")
+  password      String?
+  role          UserRole  @default(USER)
+  accounts      Account[]
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+enum Transmission {
+  AUTOMATIC
+  MANUAL
+}
+enum BodyType {
+  SUV
+  SEDAN
+  TRUCK
+  COUPE
+  VAN
+  HYBRID
+  ELECTRIC
+  HATCHBACK
+  SPORT
+  LUXURY
+}
+
+model Cars {
+  id                  String       @id @default(uuid())
+  vehicleClass        VehicleClass
+  year_of_manufacture Int
+  brand               String
+  model               String
+  horse_power         String
+  fuel_type           String
+  body_type BodyType
+  transmission        Transmission
+  created_at          DateTime     @default(now())
+  updated_at          DateTime     @updatedAt
+}
