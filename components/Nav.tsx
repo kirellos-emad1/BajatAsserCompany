@@ -64,16 +64,13 @@ const Nav = () => {
                     variant="outline"
                     size="sm"
                     className="font-medium w-20 font-sans  "
-                    onClick={toggleMenu}
                   >
                     <Link href="/auth/login">تسجيل دخول</Link>
                   </Button>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="font-medium  font-sans w-20"
-                    onClick={toggleMenu}
-                  >
+                    className="font-medium  font-sans w-20"                  >
                     <Link href="/auth/register" className="">
                       انشاء حساب
                     </Link>
@@ -83,8 +80,8 @@ const Nav = () => {
                 <Button
                   type="button"
                   onClick={() => {
-                    toggleMenu;
                     signOut;
+                    toggleMenu;
                   }}
                 >
                   تسجيل خروج
