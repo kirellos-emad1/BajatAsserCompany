@@ -19,59 +19,81 @@ const Nav = () => {
     <nav className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
       {/* mobile navbar */}
       <div className="md:hidden flex relative  transition-all">
-        {!showMenu?(
-
+        {!showMenu ? (
           <Button
-          variant="outline"
-          onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-          >
-          <IoMenu className=" w-6 h-6" />
-        </Button>
-          ):(
-            <Button
             variant="outline"
             onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-            >
-            <IoClose className="w-7 h-7 transition-all"  />
+          >
+            <IoMenu className=" w-6 h-6" />
           </Button>
-          )}
+        ) : (
+          <Button
+            variant="outline"
+            onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+          >
+            <IoClose className="w-7 h-7 transition-all" />
+          </Button>
+        )}
         {showMenu ? (
           <div className="fixed left-0 shadow-4xl right-0 top-[7rem] pt-0  border-b border-b-white/20">
             <div className="flex flex-col items-center gap-x-4 bg-white h-screen ">
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-                <Link href="/" className="text-black/80" onClick={()=>setShowMenu((prevShowMenu) => !prevShowMenu)}>
+                <Link
+                  href="/"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
                   طلب تمويل
                 </Link>
               </p>
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-                <Link href="/" className="text-black/80" onClick={()=>setShowMenu((prevShowMenu) => !prevShowMenu)}>
+                <Link
+                  href="/"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
                   السيارات
                 </Link>
               </p>
               <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-                <Link href="/" className="text-black/80" onClick={()=>setShowMenu((prevShowMenu) => !prevShowMenu)}>
+                <Link
+                  href="/"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
                   عن الشركة
                 </Link>
               </p>
               <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-                <Link href="/" className="text-black/80" onClick={()=>setShowMenu((prevShowMenu) => !prevShowMenu)}>
+                <Link
+                  href="/"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
                   الرئيسية
                 </Link>
               </p>
               {!session?.user ? (
-                <div className="flex flex-col items-center gap-x-4 ">
+                <div className="flex flex-col gap-3 items-center gap-x-4 ">
                   <Button
                     variant="outline"
                     size="sm"
                     className="font-medium w-20 font-sans  "
                   >
-                    <Link href="/auth/login">تسجيل دخول</Link>
+                    <Link href="/auth/login" onClick={toggleMenu}>
+                      تسجيل دخول
+                    </Link>
                   </Button>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="font-medium  font-sans w-20"                  >
-                    <Link href="/auth/register" className="">
+                    className="font-medium  font-sans w-20"
+                  >
+                    <Link
+                      href="/auth/register"
+                      onClick={toggleMenu}
+                      className=""
+                    >
                       انشاء حساب
                     </Link>
                   </Button>
@@ -79,9 +101,11 @@ const Nav = () => {
               ) : (
                 <Button
                   type="button"
+                  variant="outline"
+                  className="font-medium  font-sans w-20"
                   onClick={() => {
-                    signOut;
-                    toggleMenu;
+                    signOut();
+                    toggleMenu();
                   }}
                 >
                   تسجيل خروج
@@ -101,16 +125,10 @@ const Nav = () => {
               variant="default"
               size="sm"
               className="font-medium max-[768px]:hidden  font-sans text-lg "
-              onClick={toggleMenu}
             >
               <Link href="/auth/login">تسجيل دخول</Link>
             </Button>
-            <Button
-              size="sm"
-              variant="default"
-              className="font-medium  max-[768px]:hidden font-sans text-lg"
-              onClick={toggleMenu}
-            >
+            <Button size="sm" variant="default" onClick={toggleMenu}>
               <Link href="/auth/register" className="">
                 انشاء حساب
               </Link>
@@ -119,11 +137,9 @@ const Nav = () => {
         ) : (
           <Button
             type="button"
+            size="sm"
             className="max-[768px]:hidden"
-            onClick={() => {
-              toggleMenu;
-              signOut;
-            }}
+            onClick={()=>signOut()}
           >
             تسجيل خروج
           </Button>
@@ -152,7 +168,13 @@ const Nav = () => {
         </p>
       </div>
       <Link href="/" className="flex gap-2 flex-center">
-        <Image src="/logo.png" alt="logo" width={100} height={100}  className=" w-20" />
+        <Image
+          src="/logo.png"
+          alt="logo"
+          width={100}
+          height={100}
+          className=" w-20"
+        />
       </Link>
     </nav>
   );
