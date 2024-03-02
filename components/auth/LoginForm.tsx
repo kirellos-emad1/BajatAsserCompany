@@ -22,11 +22,11 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export const LoginForm = () => {
-  const searchParams = useSearchParams();
-  const urlError =
-    searchParams.get("error") === "OAuthAccountNotLinked"
-      ? "Email is already in use with different provider"
-      : "";
+  // const searchParams = useSearchParams();
+  // const urlError =
+  //   searchParams.get("error") === "OAuthAccountNotLinked"
+  //     ? "Email is already in use with different provider"
+  //     : "";
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -109,7 +109,7 @@ export const LoginForm = () => {
               )}
             ></FormField>
           </div>
-          <FormError message={error || urlError} />
+          {/* <FormError message={error || urlError} /> */}
           <FormSuccess message={success} />
           <Button type="submit" disabled={isPending} className="w-full font-sans">
             تسجيل

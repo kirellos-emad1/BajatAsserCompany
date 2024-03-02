@@ -5,7 +5,7 @@ export default async function Home() {
   console.log(session)
   return (
     <div className=" h-screen bg-gray-500/10 mt-24 ">
-    hhhhh
+    <p>{JSON.stringify(session?.user)}</p>
     </div>
   );
 }
