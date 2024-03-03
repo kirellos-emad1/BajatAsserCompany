@@ -10,17 +10,17 @@ const Footer: React.FC = () => {
           <Image src="/logo.png" alt="logo" width={100} height={100} />
           <div>
             <p className="mb-4">
-              <Link href="/" className="text-black/80">
-                شروط و احكام
+              <Link href="/terms_of_service" className="text-black/80">
+                الشروط و الاحكام
               </Link>
             </p>
             <p className="mb-4">
-              <Link href="/" className="text-black/80">
+              <Link href="/privacy_policy" className="text-black/80">
                 الخصوصية
               </Link>
             </p>
             <p>
-              <Link href="/" className="text-black/80">
+              <Link href="/contact_us" className="text-black/80">
                 اتصل بنا
               </Link>
             </p>
@@ -32,12 +32,12 @@ const Footer: React.FC = () => {
               </Link>
             </p>
             <p className="mb-4">
-              <Link href="/" className="text-black/80">
+              <Link href="/about_us" className="text-black/80">
                 عن الشركة
               </Link>
             </p>
             <p className="mb-4">
-              <Link href="/" className="text-black/80">
+              <Link href="/cars" className="text-black/80">
                 السيارات
               </Link>
             </p>
@@ -64,9 +64,10 @@ const Footer: React.FC = () => {
               </svg>
               asser4cars@gmail.com
             </Link>
-            <Link 
-            href="tel:+9660557109911"
-            className="flex items-center justify-center md:justify-start mb-4 text-black/80">
+            <Link
+              href="tel:+9660557109911"
+              className="flex items-center justify-center md:justify-start mb-4 text-black/80"
+            >
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -85,15 +86,30 @@ const Footer: React.FC = () => {
               +966 0557109911
             </Link>
             <div className=" flex gap-3 items-center justify-center md:justify-start">
-              <Link href="https://www.facebook.com/profile.php?id=100087448772006" target="_blank" >
-                <FaFacebook  className="h-8 w-8 text-blue-600"/>
+              <Link
+                href="https://www.facebook.com/profile.php?id=100087448772006"
+                target="_blank"
+              >
+                <FaFacebook className="h-8 w-8 text-blue-600" />
               </Link>
 
-              <Link href="https://api.whatsapp.com/send/?phone=9660557109911&text=لدل+استفسار&type=phone_number&app_absent=0" target="_blank">
+              <Link
+                href="https://api.whatsapp.com/send/?phone=9660557109911&text=لدل+استفسار&type=phone_number&app_absent=0"
+                target="_blank"
+              >
                 <FaWhatsapp className=" w-8 h-8 text-green-500" />
               </Link>
-              <Link href="https://haraj.com.sa/users/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A8%D9%87%D8%AC%D8%A9%20%D8%B9%D8%B3%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6" target="_blank" >
-                <Image src="/haraj.jpg" width={100}height={100} className=" w-8 h-8 rounded-full"  alt="haraj"/>
+              <Link
+                href="https://haraj.com.sa/users/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A8%D9%87%D8%AC%D8%A9%20%D8%B9%D8%B3%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6"
+                target="_blank"
+              >
+                <Image
+                  src="/haraj.jpg"
+                  width={100}
+                  height={100}
+                  className=" w-8 h-8 rounded-full"
+                  alt="haraj"
+                />
               </Link>
             </div>
           </div>

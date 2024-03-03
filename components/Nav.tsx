@@ -16,7 +16,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
+    <nav 
+    className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
       {/* mobile navbar */}
       <div className="md:hidden flex relative  transition-all">
         {!showMenu ? (
@@ -35,11 +36,11 @@ const Nav = () => {
           </Button>
         )}
         {showMenu ? (
-          <div className="fixed left-0 shadow-4xl right-0 top-[7rem] pt-0  border-b border-b-white/20">
+          <div className="fixed left-0 shadow-4xl right-0 top-[6rem] pt-0  border-b border-b-white/20">
             <div className="flex flex-col items-center gap-x-4 bg-white h-screen ">
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
                 <Link
-                  href="/"
+                  href="/funding_request"
                   className="text-black/80"
                   onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
                 >
@@ -48,7 +49,7 @@ const Nav = () => {
               </p>
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
                 <Link
-                  href="/"
+                  href="/cars"
                   className="text-black/80"
                   onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
                 >
@@ -57,7 +58,7 @@ const Nav = () => {
               </p>
               <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
                 <Link
-                  href="/"
+                  href="/about_us"
                   className="text-black/80"
                   onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
                 >
@@ -128,7 +129,12 @@ const Nav = () => {
             >
               <Link href="/auth/login">تسجيل دخول</Link>
             </Button>
-            <Button size="sm" variant="default" onClick={toggleMenu}>
+            <Button
+              size="sm"
+              variant="default"
+              onClick={toggleMenu}
+              className="font-medium max-[768px]:hidden  font-sans text-lg "
+            >
               <Link href="/auth/register" className="">
                 انشاء حساب
               </Link>
@@ -139,7 +145,7 @@ const Nav = () => {
             type="button"
             size="sm"
             className="max-[768px]:hidden"
-            onClick={()=>signOut()}
+            onClick={() => signOut()}
           >
             تسجيل خروج
           </Button>
@@ -147,17 +153,17 @@ const Nav = () => {
       </div>
       <div className="flex gap-x-4 max-[768px]:hidden  ">
         <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-          <Link href="/" className="text-black/80">
+          <Link href="/funding_request" className="text-black/80">
             طلب تمويل
           </Link>
         </p>
         <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-          <Link href="/" className="text-black/80">
+          <Link href="/cars" className="text-black/80">
             السيارات
           </Link>
         </p>
         <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-          <Link href="/" className="text-black/80">
+          <Link href="/about_us" className="text-black/80">
             عن الشركة
           </Link>
         </p>
@@ -174,6 +180,7 @@ const Nav = () => {
           width={100}
           height={100}
           className=" w-20"
+          onClick={toggleMenu}
         />
       </Link>
     </nav>
