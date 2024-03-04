@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="text-center lg:text-left bg-white/30 text-black ">
       <div className="mx-6 py-10 text-center md:text-left">
-        <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <Image
             src="/logo.png"
             alt="logo"
@@ -16,6 +16,9 @@ const Footer: React.FC = () => {
             priority
           />
           <div>
+            <h6 className="uppercase font-sans font-semibold mb-4 flex justify-center md:justify-start ">
+              معلومات تهمك
+            </h6>
             <p className="mb-4">
               <Link href="/terms_of_service" className="text-black/80">
                 الشروط و الاحكام
@@ -33,6 +36,9 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <div>
+            <h6 className="uppercase font-sans font-semibold mb-4 flex justify-center md:justify-start ">
+              تصفح موقعنا
+            </h6>
             <p className="mb-4">
               <Link href="/" className="text-black/80">
                 الرئيسية
@@ -50,6 +56,9 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <div className="">
+            <h6 className="uppercase font-sans font-semibold mb-4 flex justify-center md:justify-start ">
+              اتصل بنا عبر وسائل التواصل خصتنا
+            </h6>
             <Link
               href="mailto:asser4cars@gmail.com"
               className="flex items-center justify-center md:justify-start mb-4 text-black/80"
@@ -118,6 +127,16 @@ const Footer: React.FC = () => {
                   alt="haraj"
                 />
               </Link>
+            </div>
+          </div>
+          <div  className="">
+            <h6 className="uppercase font-sans font-semibold mb-4 flex justify-center md:justify-start ">
+              العنوان
+            </h6>
+            <p >الرياض حي القادسيه</p>
+            <div className=" flex items-center md:justify-start justify-center">
+              
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.959385894775!2d46.828937499999995!3d24.831062499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2eff65b6e75a97%3A0xb49fe3c882ccf180!2z2YXYudix2LYg2KjZh9is2Kkg2LnYs9mK2LEg2YTZhNiz2YrYp9ix2KfYqiDZgdix2Lkg2KfZhNmC2KfYr9iz2YrYqQ!5e0!3m2!1sen!2seg!4v1709580864433!5m2!1sen!2seg" width="200" height="100" style={{border:'0'}}  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
