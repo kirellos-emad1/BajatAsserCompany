@@ -15,8 +15,7 @@ const Nav = () => {
   };
 
   return (
-    <nav 
-    className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
+    <nav className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
       {/* mobile navbar */}
       <div className="md:hidden flex relative  transition-all">
         {!showMenu ? (
@@ -37,6 +36,15 @@ const Nav = () => {
         {showMenu ? (
           <div className="fixed left-0 shadow-4xl right-0 top-[6rem] pt-0  border-b border-b-white/20">
             <div className="flex flex-col items-center gap-x-4 bg-white h-screen ">
+              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+                <Link
+                  href="/contact_us"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
+                  اتصل بنا
+                </Link>
+              </p>
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
                 <Link
                   href="/funding_request"
@@ -151,6 +159,15 @@ const Nav = () => {
         )}
       </div>
       <div className="flex gap-x-4 max-[768px]:hidden  ">
+        <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+          <Link
+            href="/contact_us"
+            className="text-black/80"
+            onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+          >
+            اتصل بنا
+          </Link>
+        </p>
         <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
           <Link href="/funding_request" className="text-black/80">
             طلب تمويل
