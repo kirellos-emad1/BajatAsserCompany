@@ -7,7 +7,14 @@ const Footer: React.FC = () => {
     <footer className="text-center lg:text-left bg-white/30 text-black ">
       <div className="mx-6 py-10 text-center md:text-left">
         <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Image src="/logo.png" alt="logo" width={100} height={100} />
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={100}
+            height={100}
+            className=" w-24  "
+            priority
+          />
           <div>
             <p className="mb-4">
               <Link href="/terms_of_service" className="text-black/80">

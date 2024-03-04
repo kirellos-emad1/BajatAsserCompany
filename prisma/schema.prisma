@@ -39,7 +39,7 @@ enum VehicleClass {
 }
 
 model FundCar {
-  id                  String         @id @default(uuid())
+  id                  String         @id @default(cuid())
   vehicleClass        VehicleClass
   year_of_manufacture Int
   brand               String
@@ -105,7 +105,7 @@ enum BodyType {
 }
 
 model Cars {
-  id                  String       @id @default(uuid())
+  id                  String       @id @default(cuid())
   vehicleClass        VehicleClass
   year_of_manufacture Int
   brand               String
@@ -117,3 +117,19 @@ model Cars {
   created_at          DateTime     @default(now())
   updated_at          DateTime     @updatedAt
 }
+
+model CarBrand {
+  id String @id @default(cuid()) 
+  brand_name String
+  model CarModel[]
+}
+
+model CarModel {
+  id String @id @default(cuid())
+  model_name String
+  year Int
+  brand_id String 
+  car_brand CarBrand @relation(fields: [brand_id], references: [id])
+
+}
+

@@ -9,7 +9,6 @@ import { useSession, signOut } from "next-auth/react";
 const Nav = () => {
   const { data: session } = useSession();
   const [showMenu, setShowMenu] = useState(false);
-  console.log(showMenu);
 
   const toggleMenu = () => {
     setShowMenu(false);
@@ -179,8 +178,9 @@ const Nav = () => {
           alt="logo"
           width={100}
           height={100}
-          className=" w-20"
           onClick={toggleMenu}
+          priority
+          className=" w-24"
         />
       </Link>
     </nav>
