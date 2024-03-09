@@ -54,27 +54,6 @@ export const RegisterForm = () => {
           <div className="space-y-4">
             <FormField
               control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="flex flex-row-reverse font-sans">
-                    البريد الالكترونى
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      className=" placeholder:text-right text-right"
-                      {...field}
-                      placeholder="John.doe@example.com"
-                      type="email"
-                      disabled={isPending}
-                    />
-                  </FormControl>
-                  <FormMessage className="font-sans text-right" />
-                </FormItem>
-              )}
-            ></FormField>
-            <FormField
-              control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
@@ -85,7 +64,28 @@ export const RegisterForm = () => {
                     <Input
                       className=" placeholder:text-right text-right"
                       {...field}
-                      placeholder="John Doe"
+                      placeholder="اسم المستخدم"
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage className="font-sans text-right" />
+                </FormItem>
+              )}
+            ></FormField>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex flex-row-reverse font-sans">
+                    البريد الالكترونى
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      className=" placeholder:text-right font-sans text-right"
+                      {...field}
+                      placeholder="John.doe@example.com"
+                      type="email"
                       disabled={isPending}
                     />
                   </FormControl>
@@ -117,7 +117,11 @@ export const RegisterForm = () => {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button type="submit" disabled={isPending} className="w-full font-sans">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="w-full font-sans"
+          >
             انشاء حساب
           </Button>
         </form>

@@ -4,48 +4,45 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
+  url       = env("DATABASE_URL")
   // uncomment next line if you use Prisma <5.10
   directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model FinanceProfile {
-  id                             String   @id @default(cuid())
+  id                             String       @id @default(cuid())
   name                           String
   mobile                         String
   email                          String
-  presonal_id                    String
+  personal_id                    String
   city                           String
   resident                       String
   work_sector                    String
-  salary                         Int
+  salary                         String
   bank                           String
   do_you_have_a_mortgage         Boolean
+  valueOfMortgage                String?
   do_you_have_traffic_violations Boolean
-  do_you_have_a_stumbling_block  Boolean
-  do_you_have_Visa_installments  Boolean
+  do_you_have_a_disability       Boolean
+  do_you_have_visa_installments  Boolean
+  valueOfVisaInstallment         String?
   do_you_have_a_personal_loan    Boolean
+  valueOfPersonalLoan            String?
   do_you_have_car_installment    Boolean
-  car                            FundCar?
-  do_you_accept_trems_and_bolice Boolean
-  created_at                     DateTime @default(now())
-  updated_at                     DateTime @updatedAt
+  valueOfCarInstallment          String?
+  do_you_accept_terms_and_police Boolean
+  vehicle_class                   String
+  year_of_manufacture            String
+  brand                          String
+  model                          String
+  created_at                     DateTime     @default(now())
+  updated_at                     DateTime     @updatedAt
 }
 
 enum VehicleClass {
   STANDARD
   SEMIFULL
   FULL
-}
-
-model FundCar {
-  id                  String         @id @default(cuid())
-  vehicleClass        VehicleClass
-  year_of_manufacture Int
-  brand               String
-  model               String
-  financeProfileId    String         @unique
-  financeProfile      FinanceProfile @relation(fields: [financeProfileId], references: [id])
 }
 
 // User model
@@ -91,6 +88,7 @@ enum Transmission {
   AUTOMATIC
   MANUAL
 }
+
 enum BodyType {
   SUV
   SEDAN
@@ -112,24 +110,23 @@ model Cars {
   model               String
   horse_power         String
   fuel_type           String
-  body_type BodyType
+  price               Float
+  body_type           BodyType
   transmission        Transmission
   created_at          DateTime     @default(now())
   updated_at          DateTime     @updatedAt
 }
 
 model CarBrand {
-  id String @id @default(cuid()) 
+  id         String     @id @default(cuid())
   brand_name String
-  model CarModel[]
+  model      CarModel[]
 }
 
 model CarModel {
-  id String @id @default(cuid())
+  id         String   @id @default(cuid())
   model_name String
-  year Int
-  brand_id String 
-  car_brand CarBrand @relation(fields: [brand_id], references: [id])
-
+  year       Int
+  brand_id   String
+  car_brand  CarBrand @relation(fields: [brand_id], references: [id])
 }
-

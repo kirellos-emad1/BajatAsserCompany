@@ -16,9 +16,11 @@ export const RegisterSchema = z.object({
   password: z.string().min(8, {
     message: "يجب ان لا تقل كلمه السر عن 	٨ احرف/ارقام",
   }),
-  name: z.string().min(3, {
-    message: "يرجي ادخال اسم الامستخدم",
-  }),
+  name: z.string().regex(/^[؀-ۿ\s]+$/, {
+    message: 'برجاء كتابه اسم المستخدم باللغه العربيه'
+  }).min(3, {
+    message: "يرجي ادخال اسم الامستخدم"
+  })
 });
 export const ResetSchema = z.object({
   email: z.string().email({
@@ -31,21 +33,39 @@ export const NewPasswordSchema = z.object({
   }),
 });
 
-export const CreateProduct = z.object({
-  category: z.string().min(3, {
-    message: "please add a valid category"
+export const FundSchema = z.object({
+  name: z.string().regex(/^[؀-ۿ\s]+$/, {
+    message: 'برجاء كتابه اسم المستخدم باللغه العربيه'
+  }).min(3, {
+    message: "يرجي ادخال اسم الامستخدم"
   }),
-  title: z.string().min(3, {
-    message: "Please add a valid title"
+  email: z.string().email({
+    message: "يرجي ادخال البريد الايكتروني"
   }),
-  summary: z.string().min(3, {
-    message: "Please add a valid summary"
+  personalId: z.string().regex(/^[0-9]+$/, {
+    message: " ارجاء ادخال رقم الهويه الشخصيه"
+  }).min(10).max(11),
+  mobileNumber: z.string().regex(/^[0-9+]+$/,
+    {
+      message: "الرجاء ادخال رقم الجوال دون شباك الدوله"
+    }).min(10,
+      {
+        message: "الرجاء ادخال رقم الجوال دون شباك الدوله"
+      }).max(10),
+
+  city: z.string().regex(/^[؀-ۿ\s]+$/, {
+    message: "الرجاء ادخال المدينه التي تقيم فيها"
   }),
-  images: z.array(z.string()).optional(),
-  description: z.string().min(3, {
-    message: "please add a valid description"
-  }),
-  price_by_meter: z.string(),
-  quantity_by_meter: z.string(),
-  // created_by: z.string(),
-});
+  resident: z.string().regex(/^[؀-ۿ\s]+$/),
+  workSector: z.string().regex(/^[؀-ۿ\s]+$/),
+  salary: z.string(),
+  bank: z.string().regex(/^[؀-ۿ\s]+$/),
+  valueOfMortgage: z.string().regex(/^[0-9]+$/).optional(),
+  valueOfVisaInstallment: z.string().regex(/^[0-9]+$/).optional(),
+  valueOfPersonalLoan: z.string().regex(/^[0-9]+$/).optional(),
+  valueOfCarInstallment: z.string().regex(/^[0-9]+$/).optional(),
+  vehicleClass:z.string(),
+  yearOfManufacture:z.string(),
+  brand:z.string(),
+  model:z.string(),
+})

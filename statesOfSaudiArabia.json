@@ -1,0 +1,786 @@
+[
+  {
+    "region_id": 1,
+    "name_ar": "الرياض"
+  },
+  {
+    "region_id": 2,
+    "name_ar": "جدة"
+  },
+  {
+    "region_id": 164,
+    "name_ar": "مكة المكرمة"
+  },
+  {
+    "region_id": 3,
+    "name_ar": "الطائف"
+  },
+  {
+    "region_id": 4,
+    "name_ar": "الحوية"
+  },
+  {
+    "region_id": 5,
+    "name_ar": "المدينة المنورة"
+  },
+  {
+    "region_id": 6,
+    "name_ar": "تبوك"
+  },
+  {
+    "region_id": 7,
+    "name_ar": "الدمام"
+  },
+  {
+    "region_id": 8,
+    "name_ar": "الهفوف والمبرَّز"
+  },
+  {
+    "region_id": 9,
+    "name_ar": "بريدة"
+  },
+  {
+    "region_id": 10,
+    "name_ar": "خميس مشيط"
+  },
+  {
+    "region_id": 11,
+    "name_ar": "الجبيل"
+  },
+  {
+    "region_id": 12,
+    "name_ar": "حائل"
+  },
+  {
+    "region_id": 13,
+    "name_ar": "نجران"
+  },
+  {
+    "region_id": 14,
+    "name_ar": "حفر الباطن"
+  },
+  {
+    "region_id": 15,
+    "name_ar": "أبها"
+  },
+  {
+    "region_id": 16,
+    "name_ar": "السيح"
+  },
+  {
+    "region_id": 17,
+    "name_ar": "ينبع"
+  },
+  {
+    "region_id": 18,
+
+    "name_ar": "الخبر"
+  },
+  {
+    "region_id": 19,
+
+    "name_ar": "عرعر"
+  },
+  {
+    "region_id": 20,
+
+    "name_ar": "عنيزة"
+  },
+  {
+    "region_id": 21,
+
+    "name_ar": "سكاكا"
+  },
+  {
+    "region_id": 22,
+
+    "name_ar": "جيزان"
+  },
+  {
+    "region_id": 23,
+
+    "name_ar": "الظهران"
+  },
+  {
+    "region_id": 24,
+
+    "name_ar": "القطيف"
+  },
+  {
+    "region_id": 25,
+
+    "name_ar": "القريات"
+  },
+  {
+    "region_id": 26,
+
+    "name_ar": "الباحة"
+  },
+  {
+    "region_id": 27,
+
+    "name_ar": "وادي الدواسر"
+  },
+  {
+    "region_id": 28,
+
+    "name_ar": "الرس"
+  },
+  {
+    "region_id": 29,
+
+    "name_ar": "بيشة"
+  },
+  {
+    "region_id": 30,
+
+    "name_ar": "تاروت"
+  },
+  {
+    "region_id": 31,
+
+    "name_ar": "سيهات"
+  },
+  {
+    "region_id": 32,
+
+    "name_ar": "شرورة"
+  },
+  {
+    "region_id": 33,
+
+    "name_ar": "بحرة"
+  },
+  {
+    "region_id": 34,
+
+    "name_ar": "الخفجي"
+  },
+  {
+    "region_id": 35,
+
+    "name_ar": "صبيا"
+  },
+  {
+    "region_id": 36,
+
+    "name_ar": "الدوادمي"
+  },
+  {
+    "region_id": 37,
+
+    "name_ar": "أبو عريش"
+  },
+  {
+    "region_id": 38,
+
+    "name_ar": "الزلفي"
+  },
+  {
+    "region_id": 39,
+
+    "name_ar": "أحد رفيدة"
+  },
+  {
+    "region_id": 40,
+
+    "name_ar": "محايل عسير"
+  },
+  {
+    "region_id": 41,
+
+    "name_ar": "رابغ"
+  },
+  {
+    "region_id": 42,
+
+    "name_ar": "راس تنورة"
+  },
+  {
+    "region_id": 43,
+
+    "name_ar": "رفحاء"
+  },
+  {
+    "region_id": 44,
+
+    "name_ar": "صقوى"
+  },
+  {
+    "region_id": 45,
+
+    "name_ar": "طبرجل"
+  },
+  {
+    "region_id": 46,
+
+    "name_ar": "طريف"
+  },
+  {
+    "region_id": 47,
+
+    "name_ar": "المجمعة"
+  },
+  {
+    "region_id": 48,
+
+    "name_ar": "البدائع"
+  },
+  {
+    "region_id": 49,
+
+    "name_ar": "عفيف"
+  },
+  {
+    "region_id": 50,
+
+    "name_ar": "بلجرشي"
+  },
+  {
+    "region_id": 51,
+
+    "name_ar": "الدرعية"
+  },
+  {
+    "region_id": 52,
+
+    "name_ar": "الدلم"
+  },
+  {
+    "region_id": 53,
+
+    "name_ar": "املج"
+  },
+  {
+    "region_id": 54,
+
+    "name_ar": "بقيق"
+  },
+  {
+    "region_id": 56,
+
+    "name_ar": "العيون"
+  },
+  {
+    "region_id": 57,
+
+    "name_ar": "العلا"
+  },
+  {
+    "region_id": 58,
+
+    "name_ar": "ليلى"
+  },
+  {
+    "region_id": 59,
+
+    "name_ar": "بيش"
+  },
+  {
+    "region_id": 60,
+
+    "name_ar": "الوجه"
+  },
+  {
+    "region_id": 61,
+
+    "name_ar": "تيماء"
+  },
+  {
+    "region_id": 62,
+
+    "name_ar": "المزاحمية"
+  },
+  {
+    "region_id": 63,
+
+    "name_ar": "القويعية"
+  },
+  {
+    "region_id": 64,
+
+    "name_ar": "البكيرية"
+  },
+  {
+    "region_id": 65,
+
+    "name_ar": "المذنب"
+  },
+  {
+    "region_id": 66,
+
+    "name_ar": "بدر"
+  },
+  {
+    "region_id": 67,
+
+    "name_ar": "القديح"
+  },
+  {
+    "region_id": 68,
+
+    "name_ar": "الخرمة"
+  },
+  {
+    "region_id": 69,
+
+    "name_ar": "النماص"
+  },
+  {
+    "region_id": 70,
+
+    "name_ar": "العوامية"
+  },
+  {
+    "region_id": 71,
+
+    "name_ar": "شقراء"
+  },
+  {
+    "region_id": 72,
+
+    "name_ar": "السليل"
+  },
+  {
+    "region_id": 73,
+
+    "name_ar": "النعيرية"
+  },
+  {
+    "region_id": 74,
+
+    "name_ar": "حوطة بني تميم"
+  },
+  {
+    "region_id": 75,
+
+    "name_ar": "تربة"
+  },
+  {
+    "region_id": 76,
+
+    "name_ar": "حقل"
+  },
+  {
+    "region_id": 77,
+
+    "name_ar": "الجموم"
+  },
+  {
+    "region_id": 78,
+
+    "name_ar": "ضباء"
+  },
+  {
+    "region_id": 79,
+
+    "name_ar": "أحد المسارحة"
+  },
+  {
+    "region_id": 80,
+
+    "name_ar": "القنفذة"
+  },
+  {
+    "region_id": 81,
+
+    "name_ar": "ضمد"
+  },
+  {
+    "region_id": 82,
+
+    "name_ar": "ظهران الجنوب"
+  },
+  {
+    "region_id": 83,
+
+    "name_ar": "الطرف"
+  },
+  {
+    "region_id": 84,
+
+    "name_ar": "القوز"
+  },
+  {
+    "region_id": 85,
+
+    "name_ar": "عنك"
+  },
+  {
+    "region_id": 86,
+
+    "name_ar": "القيصومة"
+  },
+  {
+    "region_id": 87,
+
+    "name_ar": "المخواة"
+  },
+  {
+    "region_id": 88,
+
+    "name_ar": "رنية"
+  },
+  {
+    "region_id": 89,
+
+    "name_ar": "العلاية"
+  },
+  {
+    "region_id": 90,
+
+    "name_ar": "حوطة سدير"
+  },
+  {
+    "region_id": 91,
+
+    "name_ar": "المنيزلة"
+  },
+  {
+    "region_id": 92,
+
+    "name_ar": "العمران"
+  },
+  {
+    "region_id": 93,
+
+    "name_ar": "رياض الخبراء"
+  },
+  {
+    "region_id": 94,
+
+    "name_ar": "الحناكية"
+  },
+  {
+    "region_id": 95,
+
+    "name_ar": "خيبر"
+  },
+  {
+    "region_id": 96,
+
+    "name_ar": "العقيق"
+  },
+  {
+    "region_id": 97,
+
+    "name_ar": "تنومة"
+  },
+  {
+    "region_id": 98,
+
+    "name_ar": "العويقيلة"
+  },
+  {
+    "region_id": 99,
+
+    "name_ar": "فرسان"
+  },
+  {
+    "region_id": 100,
+
+    "name_ar": "بقعاء"
+  },
+  {
+    "region_id": 101,
+
+    "name_ar": "أم الساهك"
+  },
+  {
+    "region_id": 102,
+
+    "name_ar": "قلوة"
+  },
+  {
+    "region_id": 103,
+
+    "name_ar": "عرقة"
+  },
+  {
+    "region_id": 104,
+
+    "name_ar": "الجشة"
+  },
+  {
+    "region_id": 105,
+
+    "name_ar": "مرات"
+  },
+  {
+    "region_id": 106,
+
+    "name_ar": "ضرما"
+  },
+  {
+    "region_id": 107,
+
+    "name_ar": "العيص"
+  },
+  {
+    "region_id": 108,
+
+    "name_ar": "الهياتم"
+  },
+  {
+    "region_id": 109,
+
+    "name_ar": "جعرانة"
+  },
+  {
+    "region_id": 110,
+
+    "name_ar": "الحبيل"
+  },
+  {
+    "region_id": 111,
+
+    "name_ar": "حلة محيش"
+  },
+  {
+    "region_id": 112,
+
+    "name_ar": "الجفر"
+  },
+  {
+    "region_id": 113,
+
+    "name_ar": "حريملاء"
+  },
+  {
+    "region_id": 114,
+
+    "name_ar": "تمير"
+  },
+  {
+    "region_id": 115,
+
+    "name_ar": "الرميلة"
+  },
+  {
+    "region_id": 116,
+
+    "name_ar": "قرية العليا"
+  },
+  {
+    "region_id": 117,
+
+    "name_ar": "الدرب"
+  },
+  {
+    "region_id": 118,
+
+    "name_ar": "الهدا"
+  },
+  {
+    "region_id": 119,
+
+    "name_ar": "البديع والقرفي"
+  },
+  {
+    "region_id": 120,
+
+    "name_ar": "العالية والخضراء"
+  },
+  {
+    "region_id": 121,
+
+    "name_ar": "الجرن"
+  },
+
+  {
+    "region_id": 123,
+
+    "name_ar": "المظيلف"
+  },
+  {
+    "region_id": 124,
+
+    "name_ar": "الحريق"
+  },
+  {
+    "region_id": 125,
+
+    "name_ar": "التوبي"
+  },
+  {
+    "region_id": 126,
+
+    "name_ar": "تثليث"
+  },
+  {
+    "region_id": 127,
+
+    "name_ar": "الاثنين"
+  },
+  {
+    "region_id": 128,
+
+    "name_ar": "العيدايي"
+  },
+  {
+    "region_id": 129,
+
+    "name_ar": "المطعن"
+  },
+  {
+    "region_id": 130,
+
+    "name_ar": "ثادق"
+  },
+  {
+    "region_id": 131,
+
+    "name_ar": "البديع الشمالي"
+  },
+  {
+    "region_id": 132,
+
+    "name_ar": "ذهبان"
+  },
+  {
+    "region_id": 133,
+
+    "name_ar": "الحائط"
+  },
+  {
+    "region_id": 134,
+
+    "name_ar": "المليداء"
+  },
+  {
+    "region_id": 135,
+
+    "name_ar": "المركز"
+  },
+  {
+    "region_id": 136,
+
+    "name_ar": "مسلية"
+  },
+  {
+    "region_id": 137,
+
+    "name_ar": "عين بن فهيد"
+  },
+  {
+    "region_id": 138,
+
+    "name_ar": "العارضة"
+  },
+  {
+    "region_id": 139,
+
+    "name_ar": "الحوطة"
+  },
+  {
+    "region_id": 140,
+
+    "name_ar": "الرويضة"
+  },
+  {
+    "region_id": 141,
+
+    "name_ar": "المطيرقة"
+  },
+  {
+    "region_id": 142,
+
+    "name_ar": "صعبر السفران الشرقية والغربية"
+  },
+  {
+    "region_id": 143,
+
+    "name_ar": "بحر أبو سكينة"
+  },
+  {
+    "region_id": 144,
+
+    "name_ar": "بئر بن هرماس"
+  },
+  {
+    "region_id": 145,
+
+    "name_ar": "مليجة"
+  },
+  {
+    "region_id": 146,
+
+    "name_ar": "الشماسية"
+  },
+  {
+    "region_id": 147,
+
+    "name_ar": "الدليمية"
+  },
+  {
+    "region_id": 148,
+
+    "name_ar": "اليمامة"
+  },
+  {
+    "region_id": 149,
+
+    "name_ar": "رخية"
+  },
+  {
+    "region_id": 150,
+
+    "name_ar": "تبالة"
+  },
+  {
+    "region_id": 151,
+
+    "name_ar": "الخضراء"
+  },
+  {
+    "region_id": 152,
+
+    "name_ar": "الملاحة"
+  },
+  {
+    "region_id": 153,
+
+    "name_ar": "الفويلق"
+  },
+
+  {
+    "region_id": 155,
+
+    "name_ar": "القوارة"
+  },
+  {
+    "region_id": 156,
+
+    "name_ar": "الضبيعة"
+  },
+  {
+    "region_id": 157,
+
+    "name_ar": "تصلال"
+  },
+  {
+    "region_id": 158,
+
+    "name_ar": "السديرية"
+  },
+  {
+    "region_id": 159,
+
+    "name_ar": "نعجان"
+  },
+  {
+    "region_id": 160,
+
+    "name_ar": "اللقية"
+  },
+  {
+    "region_id": 161,
+
+    "name_ar": "ضلم"
+  },
+  {
+    "region_id": 162,
+
+    "name_ar": "الذيبية"
+  }
+]
