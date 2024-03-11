@@ -64,7 +64,7 @@ export const createFundProfile = async (values: z.infer<typeof FundSchema>,
                 isVisaInstallments: isVisaInstallments
             }
         })
-        return {success: 'تم انشاء طلبك بنجاح'}
+        return {success: ' تم انشاء طلبك بنجاح سيتم مراجعه طلبك و التواصل معك في اقرب وقت'}
     }catch (err){
         console.log(err)
         return {error:"حدث خطاء"}

@@ -10,33 +10,48 @@ datasource db {
 }
 
 model FinanceProfile {
-  id                             String   @id @default(cuid())
-  name                           String
-  mobile                         String
-  email                          String
-  personal_id                    String
-  city                           String
-  resident                       String
-  work_sector                    String
-  salary                         String
-  bank                           String
-  haveMortgage                   Boolean
-  valueOfMortgage                String?
-  isTrafficViolations            Boolean
-  isDisabled                     Boolean
-  isVisaInstallments             Boolean
-  valueOfVisaInstallment         String?
-  isPersonalLoan                 Boolean
-  valueOfPersonalLoan            String?
-  isCarInstallment               Boolean
-  valueOfCarInstallment          String?
+  id                     String   @id @default(cuid())
+  name                   String
+  mobile                 String
+  email                  String
+  personal_id            String
+  city                   String
+  resident               String
+  work_sector            String
+  salary                 String
+  bank                   String
+  haveMortgage           Boolean
+  valueOfMortgage        String?
+  isTrafficViolations    Boolean
+  isDisabled             Boolean
+  isVisaInstallments     Boolean
+  valueOfVisaInstallment String?
+  isPersonalLoan         Boolean
+  valueOfPersonalLoan    String?
+  isCarInstallment       Boolean
+  valueOfCarInstallment  String?
   isAcceptTermsAndPolice Boolean
-  vehicle_class                  String
-  year_of_manufacture            String
-  brand                          String
-  model                          String
-  created_at                     DateTime @default(now())
-  updated_at                     DateTime @updatedAt
+  vehicle_class          String
+  year_of_manufacture    String
+  brand                  String
+  model                  String
+  created_at             DateTime @default(now())
+  updated_at             DateTime @updatedAt
+}
+
+model CompanyFund {
+  id                   String  @id @default(cuid())
+  companyName          String
+  mobileNumber         String
+  telNumber            String?
+  email                String
+  city                 String
+  carsCount            String
+  bank                 String
+  corporateAnniversary String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 enum VehicleClass {
