@@ -86,7 +86,7 @@ export const FundForm = () => {
   };
   const onSubmit = (values: z.infer<typeof FundSchema>) => {
     if (isCompanyFund === false) {
-      console.log(values)
+      console.log(values);
       setError("");
       setSuccess("");
       if (!isAcceptTermsAndPolice) {
@@ -105,9 +105,9 @@ export const FundForm = () => {
         ).then((data) => {
           setError(data?.error);
           setSuccess(data?.success);
-          if(data.success){
-            personalForm.reset()
-            setCurrentIndex(0)
+          if (data.success) {
+            personalForm.reset();
+            setCurrentIndex(0);
           }
         });
       });
@@ -121,8 +121,8 @@ export const FundForm = () => {
         createCompanyFund(values).then((data) => {
           setError(data?.error);
           setSuccess(data?.success);
-          if(data.success){
-            companyForm.reset()
+          if (data.success) {
+            companyForm.reset();
           }
         });
       });
@@ -144,17 +144,17 @@ export const FundForm = () => {
       yearOfManufacture: "",
       brand: "",
       model: "",
-      valueOfCarInstallment:"",
-      valueOfMortgage:"",
-      valueOfPersonalLoan:"",
-      valueOfVisaInstallment:""
+      valueOfCarInstallment: "",
+      valueOfMortgage: "",
+      valueOfPersonalLoan: "",
+      valueOfVisaInstallment: "",
     },
   });
   const companyForm = useForm<z.infer<typeof companyFundSchema>>({
     resolver: zodResolver(companyFundSchema),
     defaultValues: {
       companyName: "",
-      email:'',
+      email: "",
       mobileNumber: "",
       zone: "",
       bank: "",
@@ -881,24 +881,24 @@ export const FundForm = () => {
                     ></FormField>
                     <div className=" my-2">
                       <div className="flex gap-2 my-5">
-                      <Button
-                        onClick={() => setIsSelectCat(true)}
-                        className={`rounded-3xl font-sans ${
-                          !isSelectCar &&
-                          "bg-gray-400 transition-colors duration-700"
-                        } text-center`}
-                      >
-                        اختار السياره
-                      </Button>
-                      <Button
-                        onClick={() => setIsSelectCat(false)}
-                        className={`rounded-3xl font-sans ${
-                          isSelectCar &&
-                          "bg-gray-400 transition-colors duration-700"
-                        } text-center`}
-                      >
-                        سياره الاحلام
-                      </Button>
+                        <Button
+                          onClick={() => setIsSelectCat(true)}
+                          className={`rounded-3xl font-sans ${
+                            !isSelectCar &&
+                            "bg-gray-400 transition-colors duration-700"
+                          } text-center`}
+                        >
+                          اختار السياره
+                        </Button>
+                        <Button
+                          onClick={() => setIsSelectCat(false)}
+                          className={`rounded-3xl font-sans ${
+                            isSelectCar &&
+                            "bg-gray-400 transition-colors duration-700"
+                          } text-center`}
+                        >
+                          سياره الاحلام
+                        </Button>
                       </div>
                       {isSelectCar ? (
                         <>
@@ -984,46 +984,46 @@ export const FundForm = () => {
                         </>
                       ) : (
                         <>
-                        <FormField
-                        control={personalForm.control}
-                        name="brand"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex font-sans">
-                              ماركة السيارة
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                className="placeholder:text-right w-full font-sans text-right "
-                                {...field}
-                                placeholder="ماركه السياره"
-                                disabled={isPending}
-                              />
-                            </FormControl>
-                            <FormMessage className="font-sans text-right" />
-                          </FormItem>
-                        )}
-                      />
-                        <FormField
-                        control={personalForm.control}
-                        name="model"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex font-sans">
-                              موديل السيارة
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                className="placeholder:text-right w-full font-sans text-right "
-                                {...field}
-                                placeholder="موديل السيارة"
-                                disabled={isPending}
-                              />
-                            </FormControl>
-                            <FormMessage className="font-sans text-right" />
-                          </FormItem>
-                        )}
-                      />
+                          <FormField
+                            control={personalForm.control}
+                            name="brand"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="flex font-sans">
+                                  ماركة السيارة
+                                </FormLabel>
+                                <FormControl>
+                                  <Input
+                                    className="placeholder:text-right w-full font-sans text-right "
+                                    {...field}
+                                    placeholder="ماركه السياره"
+                                    disabled={isPending}
+                                  />
+                                </FormControl>
+                                <FormMessage className="font-sans text-right" />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={personalForm.control}
+                            name="model"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="flex font-sans">
+                                  موديل السيارة
+                                </FormLabel>
+                                <FormControl>
+                                  <Input
+                                    className="placeholder:text-right w-full font-sans text-right "
+                                    {...field}
+                                    placeholder="موديل السيارة"
+                                    disabled={isPending}
+                                  />
+                                </FormControl>
+                                <FormMessage className="font-sans text-right" />
+                              </FormItem>
+                            )}
+                          />
                         </>
                       )}
                     </div>
@@ -1069,8 +1069,6 @@ export const FundForm = () => {
               </>
               {currentIndex === 3 && (
                 <>
-                  <FormError message={error} />
-                  <FormSuccess message={success} />
                   <Button
                     type="submit"
                     disabled={isPending}
@@ -1080,6 +1078,8 @@ export const FundForm = () => {
                   </Button>
                 </>
               )}
+              <FormError message={error} />
+              <FormSuccess message={success} />
             </form>
           </Form>
           <section dir="rtl" className="mt-5 flex gap-4">
