@@ -8,7 +8,7 @@ export const createCompanyFund = async (values: z.infer<typeof companyFundSchema
     if (!validatedFields.success) {
         return { error: "الرجاء مراجعه الطلب" };
     }
-    const { companyName, mobileNumber, telNumber, city, email, bank, countOfCars, corporateAnniversary } = validatedFields.data;
+    const { companyName, mobileNumber, telNumber, zone, email, bank, countOfCars, corporateAnniversary } = validatedFields.data;
 
     try {
         await db.companyFund.create({
@@ -18,7 +18,7 @@ export const createCompanyFund = async (values: z.infer<typeof companyFundSchema
                 mobileNumber: mobileNumber,
                 telNumber: telNumber,
                 bank: bank,
-                city: city,
+                zone: zone,
                 carsCount:countOfCars,
                 corporateAnniversary:corporateAnniversary
             }

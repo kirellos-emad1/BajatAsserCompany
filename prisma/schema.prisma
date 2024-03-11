@@ -15,7 +15,7 @@ model FinanceProfile {
   mobile                 String
   email                  String
   personal_id            String
-  city                   String
+  zone                   String
   resident               String
   work_sector            String
   salary                 String
@@ -45,7 +45,7 @@ model CompanyFund {
   mobileNumber         String
   telNumber            String?
   email                String
-  city                 String
+  zone                 String
   carsCount            String
   bank                 String
   corporateAnniversary String

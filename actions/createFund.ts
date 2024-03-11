@@ -17,7 +17,7 @@ export const createFundProfile = async (values: z.infer<typeof FundSchema>,
         return { error: "الرجاء مراجعه الطلب" };
     }
 
-    const { salary, name, mobileNumber, personalId, city, email, resident, workSector, bank, valueOfCarInstallment, valueOfMortgage, valueOfPersonalLoan, valueOfVisaInstallment, vehicleClass, yearOfManufacture, model, brand } = validatedFields.data;
+    const { salary, name, mobileNumber, personalId, zone, email, resident, workSector, bank, valueOfCarInstallment, valueOfMortgage, valueOfPersonalLoan, valueOfVisaInstallment, vehicleClass, yearOfManufacture, model, brand } = validatedFields.data;
     const isValidName = name.split(" ")
     if(isValidName.length !== 3 ){
         return { error: "الرجاء كتابه الاسم ثلاثي" }
@@ -44,7 +44,7 @@ export const createFundProfile = async (values: z.infer<typeof FundSchema>,
                 bank: bank,
                 salary: salary,
                 personal_id: personalId,
-                city: city,
+                zone: zone,
                 resident: resident,
                 work_sector: workSector,
                 vehicle_class: vehicleClass,

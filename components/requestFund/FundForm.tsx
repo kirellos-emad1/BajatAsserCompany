@@ -126,7 +126,7 @@ export const FundForm = () => {
       mobileNumber: "",
       name: "",
       personalId: "",
-      city: "",
+      zone: "",
       resident: "",
       workSector: "",
       salary: "",
@@ -142,7 +142,7 @@ export const FundForm = () => {
     defaultValues: {
       companyName: "",
       mobileNumber: "",
-      city: "",
+      zone: "",
       bank: "",
       corporateAnniversary: "",
       countOfCars: "",
@@ -331,7 +331,7 @@ export const FundForm = () => {
                     ></FormField>
                     <FormField
                       control={personalForm.control}
-                      name="city"
+                      name="zone"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex  font-sans">
@@ -1115,7 +1115,7 @@ export const FundForm = () => {
                 ></FormField>
                 <FormField
                   control={companyForm.control}
-                  name="city"
+                  name="zone"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex  font-sans">

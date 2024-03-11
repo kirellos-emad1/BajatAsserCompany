@@ -53,7 +53,7 @@ export const FundSchema = z.object({
         message: "الرجاء ادخال رقم الجوال دون شباك الدوله"
       }).max(10),
 
-  city: z.string().regex(/^[؀-ۿ\s]+$/, {
+  zone: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "الرجاء ادخال المدينه التي تقيم فيها"
   }),
   resident: z.string().min(3, {
@@ -109,7 +109,7 @@ export const companyFundSchema = z.object({
   email: z.string().email({
     message: "يرجي ادخال البريد الايكتروني"
   }),
-  city: z.string().regex(/^[؀-ۿ\s]+$/, {
+  zone: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "الرجاء اختيار مقر الشركة "
   }),
   bank: z.string().regex(/^[؀-ۿ\s]+$/, {
