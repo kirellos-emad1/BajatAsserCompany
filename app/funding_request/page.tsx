@@ -7,7 +7,7 @@ const FundingRequest = () => {
     >
       <header>
         <h1 className=" font-bold font-serif text-5xl text-blue-900/90">
-          ٥٠ عام من خبره في عالم السيارات
+          ٥٠ عام خبره في عالم السيارات
         </h1>
       </header>
       <section className="p-10">
