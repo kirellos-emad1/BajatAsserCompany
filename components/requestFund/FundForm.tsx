@@ -44,14 +44,7 @@ export const FundForm = () => {
     useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(
-    haveMortgage,
-    isCarInstallment,
-    isDisabled,
-    isPersonalLoan,
-    isTrafficViolations,
-    isVisaInstallments
-  );
+
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
 
@@ -93,7 +86,6 @@ export const FundForm = () => {
         setSuccess(data?.success);
       });
     });
-    console.log(values);
   };
   const form = useForm<z.infer<typeof FundSchema>>({
     resolver: zodResolver(FundSchema),
@@ -189,7 +181,6 @@ export const FundForm = () => {
                             {...field}
                             disabled={isPending}
                             placeholder="الهاتف / الجوال"
-
                             type="number"
                           />
                         </FormControl>
