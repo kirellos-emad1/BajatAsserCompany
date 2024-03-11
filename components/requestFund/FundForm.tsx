@@ -105,6 +105,10 @@ export const FundForm = () => {
         ).then((data) => {
           setError(data?.error);
           setSuccess(data?.success);
+          if(data.success){
+            personalForm.reset()
+            setCurrentIndex(0)
+          }
         });
       });
     }
@@ -117,6 +121,9 @@ export const FundForm = () => {
         createCompanyFund(values).then((data) => {
           setError(data?.error);
           setSuccess(data?.success);
+          if(data.success){
+            companyForm.reset()
+          }
         });
       });
     }
