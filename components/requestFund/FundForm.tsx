@@ -148,41 +148,40 @@ export const FundForm = () => {
       data-aos="fade-right"
       className=" space-y-2 pt-2 rounded-xl border bg-card text-card-foreground shadow"
     >
-      <div dir="rtl" className="flex gap-2 px-2">
+      <div dir="rtl" className="flex gap-2 items-center  px-2">
         <Button onClick={() => setIsCompanyFund(false)}>تمويل الافراد</Button>
         <Button onClick={() => setIsCompanyFund(true)}>تمويل الشركات</Button>
       </div>
         {!isCompanyFund &&
          <section dir="rtl" 
-         className="flex gap-2 px-2 ">
-          <div className={` flex items-center justify-center gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 0 && "bg-gray-200"}`}>
+         className=" grid  lg:grid-cols-4 gap-2 mx-2 grid-cols-2 ">
+          <div className={` flex items-center  gap-1    bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 0 && "bg-gray-200"}`}>
             {currentIndex > 0 ? <BsCheckCircleFill className="w-10 h-10"/> : 
             <Bs1CircleFill className="w-10 h-10"/>
             }
             <p className="font-sans">معلومات شخصية</p>
           </div>
-          <div className={` flex items-center justify-center gap-1  bg-white py-1 px-2 rounded-xl shadow-lg ${currentIndex > 1 && "bg-gray-200"}`}>
+          <div className={` flex items-center  gap-1   bg-white py-1 px-2 rounded-xl shadow-lg ${currentIndex > 1 && "bg-gray-200"}`}>
             {currentIndex > 1 ? <BsCheckCircleFill className="w-10 h-10"/> : 
             <Bs2CircleFill className="w-10 h-10"/>
             }
             <p className="font-sans">معلومات ائتمانية</p>
           </div>
-          <div className={` flex items-center justify-center gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 2 && "bg-gray-200"}`}>
+          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 2 && "bg-gray-200"}`}>
             {currentIndex > 2 ? <BsCheckCircleFill className="w-10 h-10"/> : 
             <Bs3CircleFill className="w-10 h-10"/>
             }
             <p className="font-sans">	السيارة المطلوبة</p>
           </div>
-          <div className={` flex items-center justify-center gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex >=3 && isAcceptTermsAndPolice && "bg-gray-200"}`}>
-            {currentIndex >=3 && isAcceptTermsAndPolice ? <BsCheckCircleFill className="w-10 h-10"/> : 
-            <Bs4CircleFill className="w-10 h-10"/>
+          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex >=3 && isAcceptTermsAndPolice && "bg-gray-200"}`}>
+            {currentIndex >=3 && isAcceptTermsAndPolice ? <BsCheckCircleFill className=" ml-2 w-10 h-10"/> : 
+            <Bs4CircleFill className="w-10 h-10 "/>
             }
-            <p className="font-sans">اقرار و موافق</p>
+            <p className="font-sans"> اقرار و موافق</p>
           </div>
           </section>}
       {!isCompanyFund ? (
         <CardWrapper headerLabel="" backButtonLabel="" backButtonHref="">
-          <section></section>
           <Form {...personalForm}>
             <form
               onSubmit={personalForm.handleSubmit(onSubmit)}
