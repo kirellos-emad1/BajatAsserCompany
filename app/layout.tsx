@@ -8,7 +8,25 @@ import { SessionProvider } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  
+  icons: [
+    {
+      rel: "icon",
+      type:"image/png",
+      sizes: '32x32',
+      url:'/logo.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      url: '/logo.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/logo.png',
+    },
+  ],
   title: "Bahjat Asser - Premier Car Broker in Saudi Arabia",
   description:
     "Bahjat Asser is the leading car broker in Saudi Arabia, established for over 40 years. We specialize in exporting high-quality vehicles to customers in Saudi Arabia .",
@@ -23,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
           <Nav />
