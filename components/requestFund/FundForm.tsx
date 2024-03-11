@@ -32,7 +32,13 @@ import cites from "@/statesOfSaudiArabia.json";
 import cars from "@/cars.json";
 import TextStyle from "../TextStyle";
 import { createCompanyFund } from "@/actions/createCompanyFund";
-import { BsCheckCircleFill,Bs1CircleFill,Bs2CircleFill, Bs3CircleFill, Bs4CircleFill } from "react-icons/bs";
+import {
+  BsCheckCircleFill,
+  Bs1CircleFill,
+  Bs2CircleFill,
+  Bs3CircleFill,
+  Bs4CircleFill,
+} from "react-icons/bs";
 
 export const FundForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -149,39 +155,84 @@ export const FundForm = () => {
       className=" space-y-2 pt-2 rounded-xl border bg-card text-card-foreground shadow"
     >
       <div dir="rtl" className="flex gap-2 items-center  p-2">
-        <Button onClick={() => setIsCompanyFund(false)} className={`rounded-3xl font-sans ${isCompanyFund && "bg-gray-400 transition-colors duration-700"} text-center`}>تمويل الافراد</Button>
-        <Button onClick={() => setIsCompanyFund(true)} className={`rounded-3xl font-sans ${!isCompanyFund && "bg-gray-400 transition-colors duration-700"} text-center`}>تمويل الشركات</Button>
+        <Button
+          onClick={() => setIsCompanyFund(false)}
+          className={`rounded-3xl font-sans ${
+            isCompanyFund && "bg-gray-400 transition-colors duration-700"
+          } text-center`}
+        >
+          تمويل الافراد
+        </Button>
+        <Button
+          onClick={() => setIsCompanyFund(true)}
+          className={`rounded-3xl font-sans ${
+            !isCompanyFund && "bg-gray-400 transition-colors duration-700"
+          } text-center`}
+        >
+          تمويل الشركات
+        </Button>
       </div>
-        {!isCompanyFund &&
-         <section dir="rtl" 
-         className=" grid  lg:grid-cols-4 gap-2 mx-2 grid-cols-2 ">
-          <div className={` flex items-center  gap-1 bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 0 && "bg-gray-200 "} transition-colors duration-700`}>
-            {currentIndex > 0 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
-            <Bs1CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
-            }
+      {!isCompanyFund && (
+        <section
+          dir="rtl"
+          className=" grid  lg:grid-cols-4 gap-2 mx-2 grid-cols-2 "
+        >
+          <div
+            className={` flex items-center  gap-1 bg-white py-1 px-2  rounded-xl shadow-lg ${
+              currentIndex > 0 && "bg-gray-200 "
+            } transition-colors duration-700`}
+          >
+            {currentIndex > 0 ? (
+              <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700" />
+            ) : (
+              <Bs1CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700" />
+            )}
             <p className="font-sans">معلومات شخصية</p>
           </div>
-          <div className={` flex items-center  gap-1   bg-white py-1 px-2 rounded-xl shadow-lg ${currentIndex > 1 && "bg-gray-200 "}transition-colors duration-700`}>
-            {currentIndex > 1 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
-            <Bs2CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
-            }
+          <div
+            className={` flex items-center  gap-1   bg-white py-1 px-2 rounded-xl shadow-lg ${
+              currentIndex > 1 && "bg-gray-200 "
+            }transition-colors duration-700`}
+          >
+            {currentIndex > 1 ? (
+              <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700" />
+            ) : (
+              <Bs2CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700" />
+            )}
             <p className="font-sans">معلومات ائتمانية</p>
           </div>
-          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 2 && "bg-gray-200"} transition-colors duration-700`}>
-            {currentIndex > 2 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
-            <Bs3CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
-            }
-            <p className="font-sans">	السيارة المطلوبة</p>
+          <div
+            className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${
+              currentIndex > 2 && "bg-gray-200"
+            } transition-colors duration-700`}
+          >
+            {currentIndex > 2 ? (
+              <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700" />
+            ) : (
+              <Bs3CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700" />
+            )}
+            <p className="font-sans"> السيارة المطلوبة</p>
           </div>
-          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex >=3 && isAcceptTermsAndPolice && "bg-gray-200 "}transition-colors duration-700`}>
-            {currentIndex >=3 && isAcceptTermsAndPolice ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
-            <Bs4CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700 "/>
-            }
+          <div
+            className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${
+              currentIndex >= 3 && isAcceptTermsAndPolice && "bg-gray-200 "
+            }transition-colors duration-700`}
+          >
+            {currentIndex >= 3 && isAcceptTermsAndPolice ? (
+              <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700" />
+            ) : (
+              <Bs4CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700 " />
+            )}
             <p className="font-sans"> اقرار و موافق</p>
           </div>
-          </section>}
+        </section>
+      )}
       {!isCompanyFund ? (
-        <CardWrapper headerLabel="التمويل للافراد" backButtonLabel="" backButtonHref="">
+        <CardWrapper
+          headerLabel="التمويل للافراد"
+          backButtonLabel=""
+          backButtonHref=""
+        >
           <Form {...personalForm}>
             <form
               onSubmit={personalForm.handleSubmit(onSubmit)}
@@ -284,7 +335,7 @@ export const FundForm = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex  font-sans">
-                            المدينة
+                            المنطقة
                           </FormLabel>
                           <FormControl>
                             <Select
@@ -295,20 +346,25 @@ export const FundForm = () => {
                               <SelectTrigger className="">
                                 <SelectValue
                                   className="w-full"
-                                  placeholder="اختار المدينه"
+                                  placeholder="اختار المنطقة"
                                 />
                               </SelectTrigger>
                               <SelectContent>
-                                {cites.map((city) => {
-                                  return (
-                                    <SelectItem
-                                      key={city.region_id}
-                                      value={city.name_ar}
-                                    >
-                                      {city.name_ar}
-                                    </SelectItem>
-                                  );
-                                })}
+                                <SelectItem value={"المنطقة الشمالية"}>
+                                  المنطقة الشمالية
+                                </SelectItem>
+                                <SelectItem value={"المنطقه الجنوبية"}>
+                                  المنطقه الجنوبية
+                                </SelectItem>
+                                <SelectItem value={"المنطقه الشرقية"}>
+                                  المنطقه الشرقية
+                                </SelectItem>
+                                <SelectItem value={"المنطقه الغربية"}>
+                                  المنطقه الغربية
+                                </SelectItem>
+                                <SelectItem value={"المنطقه الوسطي"}>
+                                  المنطقه الوسطي
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>
@@ -961,7 +1017,11 @@ export const FundForm = () => {
           </section>
         </CardWrapper>
       ) : (
-        <CardWrapper headerLabel="التمويل للشركات" backButtonLabel="" backButtonHref="">
+        <CardWrapper
+          headerLabel="التمويل للشركات"
+          backButtonLabel=""
+          backButtonHref=""
+        >
           <Form {...companyForm}>
             <form
               onSubmit={companyForm.handleSubmit(onSubmitCompanyFund)}
@@ -1070,20 +1130,25 @@ export const FundForm = () => {
                           <SelectTrigger className="">
                             <SelectValue
                               className="w-full"
-                              placeholder="اختار المدينه"
+                              placeholder="اختار المنطقة"
                             />
                           </SelectTrigger>
                           <SelectContent>
-                            {cites.map((city) => {
-                              return (
-                                <SelectItem
-                                  key={city.region_id}
-                                  value={city.name_ar}
-                                >
-                                  {city.name_ar}
-                                </SelectItem>
-                              );
-                            })}
+                            <SelectItem value="المنطقة الشمالية">
+                              المنطقة الشمالية
+                            </SelectItem>
+                            <SelectItem value="المنطقه الجنوبية">
+                              المنطقه الجنوبية
+                            </SelectItem>
+                            <SelectItem value="المنطقه الشرقية">
+                              المنطقه الشرقية
+                            </SelectItem>
+                            <SelectItem value="المنطقه الغربية">
+                              المنطقه الغربية
+                            </SelectItem>
+                            <SelectItem value="المنطقه الوسطي">
+                              المنطقه الوسطي
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </FormControl>
