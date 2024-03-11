@@ -50,8 +50,10 @@ export const FundSchema = z.object({
       message: "الرجاء ادخال رقم الجوال دون شباك الدوله"
     }).min(10,
       {
-        message: "الرجاء ادخال رقم الجوال دون شباك الدوله"
-      }).max(10),
+        message: "الرجاء ادخال رقم الجوال المكون من 10 خانات"
+      }).max(10, {
+          message: "الرجاء ادخال رقم الجوال المكون من 10 خانات"
+      }),
 
   zone: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "الرجاء ادخال المدينه التي تقيم فيها"
@@ -61,25 +63,17 @@ export const FundSchema = z.object({
   }).regex(/^[؀-ۿ\s]+$/),
   workSector: z.string().min(3, {
     message: "برجاء ادخال نوع العمل"
-  }).regex(/^[؀-ۿ\s]+$/),
+  }).regex(/^[؀-ۿ\s/]+$/),
   salary: z.string().min(3, {
     message: "برجاء كتابه الراتب الشهري"
   }).regex(/^[0-9]+$/),
   bank: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "برجاء اختيار البنك"
   }),
-  valueOfMortgage: z.string().regex(/^[0-9]+$/, {
-    message: " برجاء كتابه القسط الشهر للعقار"
-  }).optional().default(""),
-  valueOfVisaInstallment: z.string().regex(/^[0-9]+$/, {
-    message: "برجاء كتابه القسط الشهري لاقساط الفيزا"
-  }).optional().default(""),
-  valueOfPersonalLoan: z.string().regex(/^[0-9]+$/, {
-    message: "برجاء كتابه القسط الشهري للقرض الشخصي"
-  }).optional().default(""),
-  valueOfCarInstallment: z.string().regex(/^[0-9]+$/, {
-    message: "برجاء كتابه القسط الشهري لقرض السياره"
-  }).optional().default(""),
+  valueOfMortgage: z.string().optional(),
+  valueOfVisaInstallment: z.string().optional(),
+  valueOfPersonalLoan: z.string().optional(),
+  valueOfCarInstallment: z.string().optional(),
   vehicleClass: z.string().min(1, {
     message: "برجاء اختيار"
   }),
@@ -87,10 +81,10 @@ export const FundSchema = z.object({
     message: "برجاء اختيار"
   }),
   brand: z.string().min(1, {
-    message: "برجاء اختيار"
+    message: "برجاء ادخال / اختيار"
   }),
   model: z.string().min(1, {
-    message: "برجاء اختيار"
+    message: "برجاء ادخال / اختيار"
   }),
 })
 

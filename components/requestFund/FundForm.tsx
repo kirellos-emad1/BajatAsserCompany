@@ -56,6 +56,7 @@ export const FundForm = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isCompanyFund, setIsCompanyFund] = useState<boolean>(false);
+  const [isSelectCar, setIsSelectCat] = useState<boolean>(true);
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   useEffect(() => {
@@ -84,7 +85,8 @@ export const FundForm = () => {
     }
   };
   const onSubmit = (values: z.infer<typeof FundSchema>) => {
-    if (!isCompanyFund) {
+    if (isCompanyFund === false) {
+      console.log(values)
       setError("");
       setSuccess("");
       if (!isAcceptTermsAndPolice) {
@@ -135,12 +137,17 @@ export const FundForm = () => {
       yearOfManufacture: "",
       brand: "",
       model: "",
+      valueOfCarInstallment:"",
+      valueOfMortgage:"",
+      valueOfPersonalLoan:"",
+      valueOfVisaInstallment:""
     },
   });
   const companyForm = useForm<z.infer<typeof companyFundSchema>>({
     resolver: zodResolver(companyFundSchema),
     defaultValues: {
       companyName: "",
+      email:'',
       mobileNumber: "",
       zone: "",
       bank: "",
@@ -296,11 +303,12 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className=" placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                              className=" placeholder:text-right w-full font-sans text-right "
                               {...field}
                               disabled={isPending}
                               placeholder="الهاتف / الجوال"
-                              type="number"
+                              minLength={10}
+                              maxLength={10}
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -317,12 +325,10 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className=" placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                              className=" placeholder:text-right w-full font-sans text-right "
                               {...field}
                               disabled={isPending}
                               placeholder="رقم الهويه الشخصيه"
-                              inputMode="numeric"
-                              type="number"
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -866,83 +872,153 @@ export const FundForm = () => {
                         </FormItem>
                       )}
                     ></FormField>
-                    <div className=" my-4">
-                      <FormField
+                    <div className=" my-2">
+                      <div className="flex gap-2 my-5">
+                      <Button
+                        onClick={() => setIsSelectCat(true)}
+                        className={`rounded-3xl font-sans ${
+                          !isSelectCar &&
+                          "bg-gray-400 transition-colors duration-700"
+                        } text-center`}
+                      >
+                        اختار السياره
+                      </Button>
+                      <Button
+                        onClick={() => setIsSelectCat(false)}
+                        className={`rounded-3xl font-sans ${
+                          isSelectCar &&
+                          "bg-gray-400 transition-colors duration-700"
+                        } text-center`}
+                      >
+                        سياره الاحلام
+                      </Button>
+                      </div>
+                      {isSelectCar ? (
+                        <>
+                          <FormField
+                            control={personalForm.control}
+                            name="brand"
+                            render={({ field }) => (
+                              <FormItem className=" my-3">
+                                <FormLabel className="flex font-sans">
+                                  ماركة السيارة
+                                </FormLabel>
+                                <FormControl>
+                                  <Select
+                                    dir="rtl"
+                                    onValueChange={(value) => {
+                                      field.onChange(value);
+                                      handleBrandChange(value);
+                                    }}
+                                    defaultValue={field.value}
+                                  >
+                                    <SelectTrigger className="">
+                                      <SelectValue
+                                        className="w-full"
+                                        placeholder="اختار ماركة السيارة"
+                                      />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      {cars.map((car) => (
+                                        <SelectItem
+                                          key={car.id}
+                                          value={car.value}
+                                        >
+                                          {car.label}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
+                                </FormControl>
+                                <FormMessage className="font-sans text-right" />
+                              </FormItem>
+                            )}
+                          ></FormField>
+                          <FormField
+                            control={personalForm.control}
+                            name="model"
+                            render={({ field }) => (
+                              <FormItem className="my-3">
+                                <FormLabel className="flex font-sans">
+                                  موديلات
+                                </FormLabel>
+                                <FormControl>
+                                  <Select
+                                    dir="rtl"
+                                    onValueChange={field.onChange}
+                                    value={field.value}
+                                  >
+                                    <SelectTrigger className="">
+                                      <SelectValue
+                                        className="w-full"
+                                        placeholder={"اختار الموديل"}
+                                      />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      {(
+                                        cars.find(
+                                          (car) => car.value === selectedBrand
+                                        )?.sub_options || []
+                                      ).map((model) => (
+                                        <SelectItem
+                                          key={model.id}
+                                          value={model.value}
+                                        >
+                                          {model.value}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
+                                </FormControl>
+                                <FormMessage className="font-sans text-right" />
+                              </FormItem>
+                            )}
+                          ></FormField>
+                        </>
+                      ) : (
+                        <>
+                        <FormField
                         control={personalForm.control}
                         name="brand"
                         render={({ field }) => (
-                          <FormItem className=" my-3">
+                          <FormItem>
                             <FormLabel className="flex font-sans">
                               ماركة السيارة
                             </FormLabel>
                             <FormControl>
-                              <Select
-                                dir="rtl"
-                                onValueChange={(value) => {
-                                  field.onChange(value);
-                                  handleBrandChange(value);
-                                }}
-                                defaultValue={field.value}
-                              >
-                                <SelectTrigger className="">
-                                  <SelectValue
-                                    className="w-full"
-                                    placeholder="اختار ماركة السيارة"
-                                  />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {cars.map((car) => (
-                                    <SelectItem key={car.id} value={car.value}>
-                                      {car.label}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
+                              <Input
+                                className="placeholder:text-right w-full font-sans text-right "
+                                {...field}
+                                placeholder="ماركه السياره"
+                                disabled={isPending}
+                              />
                             </FormControl>
                             <FormMessage className="font-sans text-right" />
                           </FormItem>
                         )}
-                      ></FormField>
-                      <FormField
+                      />
+                        <FormField
                         control={personalForm.control}
                         name="model"
                         render={({ field }) => (
-                          <FormItem className="my-3">
+                          <FormItem>
                             <FormLabel className="flex font-sans">
-                              موديلات
+                              موديل السيارة
                             </FormLabel>
                             <FormControl>
-                              <Select
-                                dir="rtl"
-                                onValueChange={field.onChange}
-                                value={field.value}
-                              >
-                                <SelectTrigger className="">
-                                  <SelectValue
-                                    className="w-full"
-                                    placeholder={"اختار الموديل"}
-                                  />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {(
-                                    cars.find(
-                                      (car) => car.value === selectedBrand
-                                    )?.sub_options || []
-                                  ).map((model) => (
-                                    <SelectItem
-                                      key={model.id}
-                                      value={model.value}
-                                    >
-                                      {model.value}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
+                              <Input
+                                className="placeholder:text-right w-full font-sans text-right "
+                                {...field}
+                                placeholder="موديل السيارة"
+                                disabled={isPending}
+                              />
                             </FormControl>
                             <FormMessage className="font-sans text-right" />
                           </FormItem>
                         )}
-                      ></FormField>
+                      />
+                        </>
+                      )}
                     </div>
                   </section>
                 )}
@@ -997,8 +1073,6 @@ export const FundForm = () => {
                   </Button>
                 </>
               )}
-            </form>
-          </Form>
           <section dir="rtl" className="mt-5 flex gap-4">
             {currentIndex < 3 ? (
               <>
@@ -1015,6 +1089,8 @@ export const FundForm = () => {
               </>
             )}
           </section>
+            </form>
+          </Form>
         </CardWrapper>
       ) : (
         <CardWrapper
