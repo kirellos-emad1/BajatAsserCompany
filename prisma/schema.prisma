@@ -10,7 +10,7 @@ datasource db {
 }
 
 model FinanceProfile {
-  id                             String       @id @default(cuid())
+  id                             String   @id @default(cuid())
   name                           String
   mobile                         String
   email                          String
@@ -20,23 +20,23 @@ model FinanceProfile {
   work_sector                    String
   salary                         String
   bank                           String
-  do_you_have_a_mortgage         Boolean
+  haveMortgage                   Boolean
   valueOfMortgage                String?
-  do_you_have_traffic_violations Boolean
-  do_you_have_a_disability       Boolean
-  do_you_have_visa_installments  Boolean
+  isTrafficViolations            Boolean
+  isDisabled                     Boolean
+  isVisaInstallments             Boolean
   valueOfVisaInstallment         String?
-  do_you_have_a_personal_loan    Boolean
+  isPersonalLoan                 Boolean
   valueOfPersonalLoan            String?
-  do_you_have_car_installment    Boolean
+  isCarInstallment               Boolean
   valueOfCarInstallment          String?
-  do_you_accept_terms_and_police Boolean
-  vehicle_class                   String
+  isAcceptTermsAndPolice Boolean
+  vehicle_class                  String
   year_of_manufacture            String
   brand                          String
   model                          String
-  created_at                     DateTime     @default(now())
-  updated_at                     DateTime     @updatedAt
+  created_at                     DateTime @default(now())
+  updated_at                     DateTime @updatedAt
 }
 
 enum VehicleClass {

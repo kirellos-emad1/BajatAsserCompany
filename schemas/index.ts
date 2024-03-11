@@ -56,16 +56,40 @@ export const FundSchema = z.object({
   city: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "الرجاء ادخال المدينه التي تقيم فيها"
   }),
-  resident: z.string().regex(/^[؀-ۿ\s]+$/),
-  workSector: z.string().regex(/^[؀-ۿ\s]+$/),
-  salary: z.string(),
-  bank: z.string().regex(/^[؀-ۿ\s]+$/),
-  valueOfMortgage: z.string().regex(/^[0-9]+$/).optional(),
-  valueOfVisaInstallment: z.string().regex(/^[0-9]+$/).optional(),
-  valueOfPersonalLoan: z.string().regex(/^[0-9]+$/).optional(),
-  valueOfCarInstallment: z.string().regex(/^[0-9]+$/).optional(),
-  vehicleClass:z.string(),
-  yearOfManufacture:z.string(),
-  brand:z.string(),
-  model:z.string(),
+  resident: z.string().min(3,{
+    message:"برجاء اخيار اذا كنت مقيم / مواطن"
+  }).regex(/^[؀-ۿ\s]+$/),
+  workSector: z.string().min(3, {
+    message:"برجاء ادخال نوع العمل"
+  }).regex(/^[؀-ۿ\s]+$/),
+  salary: z.string().min(3,{
+    message: "برجاء كتابه الراتب الشهري"
+  }).regex(/^[0-9]+$/),
+  bank: z.string().regex(/^[؀-ۿ\s]+$/,{
+    message:"برجاء اختيار البنك"
+  }),
+  valueOfMortgage: z.string().regex(/^[0-9]+$/,{
+    message:" برجاء كتابه القسط الشهر للعقار"
+  }).optional().default(""),
+  valueOfVisaInstallment: z.string().regex(/^[0-9]+$/,{
+    message:"برجاء كتابه القسط الشهري لاقساط الفيزا"
+  }).optional().default(""),
+  valueOfPersonalLoan: z.string().regex(/^[0-9]+$/,{
+    message:"برجاء كتابه القسط الشهري للقرض الشخصي"
+  }).optional().default(""),
+  valueOfCarInstallment: z.string().regex(/^[0-9]+$/,{
+    message:"برجاء كتابه القسط الشهري لقرض السياره"
+  }).optional().default(""),
+  vehicleClass:z.string().min(1,{
+    message:"برجاء اختيار"
+  }),
+  yearOfManufacture:z.string().min(1,{
+    message:"برجاء اختيار"
+  }),
+  brand:z.string().min(1,{
+    message:"برجاء اختيار"
+  }),
+  model:z.string().min(1,{
+    message:"برجاء اختيار"
+  }),
 })

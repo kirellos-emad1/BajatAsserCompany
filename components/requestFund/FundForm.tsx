@@ -28,32 +28,37 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import cites from "@/statesOfSaudiArabia.json";
 import cars from "@/cars.json";
+import TextStyle from "../TextStyle";
 
 export const FundForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
-  const [haveMortgage, setHaveMortgage] = useState<boolean | undefined>();
-  const [isTrafficViolations, setIsTrafficViolations] = useState<
-    boolean | undefined
-  >();
-  const [isDisabled, setIsDisabled] = useState<boolean | undefined>();
-  const [isVisaInstallments, setIsVisaInstallments] = useState<
-    boolean | undefined
-  >();
-  const [isPersonalLoan, setIsPersonalLoan] = useState<boolean | undefined>();
-  const [isCarInstallment, setIsCarInstallment] = useState<
-    boolean | undefined
-  >();
+  const [haveMortgage, setHaveMortgage] = useState<boolean>(false);
+  const [isTrafficViolations, setIsTrafficViolations] =
+    useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [isVisaInstallments, setIsVisaInstallments] = useState<boolean>(false);
+  const [isPersonalLoan, setIsPersonalLoan] = useState<boolean>(false);
+  const [isCarInstallment, setIsCarInstallment] = useState<boolean>(false);
+  const [isAcceptTermsAndPolice, setIsAcceptTermsAndPolice] =
+    useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(currentIndex);
+  console.log(
+    haveMortgage,
+    isCarInstallment,
+    isDisabled,
+    isPersonalLoan,
+    isTrafficViolations,
+    isVisaInstallments
+  );
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
 
-  const handleBrandChange = (value:string) => {
+  const handleBrandChange = (value: string) => {
     setSelectedBrand(value);
     // Reset the selected model when the brand changes
-    setSelectedModel("اختار الموديل");
+    setSelectedModel("");
   };
 
   const handlePrevClick = () => {
@@ -63,18 +68,29 @@ export const FundForm = () => {
   };
 
   const handleNextClick = () => {
-    if (currentIndex < 4) {
+    if (currentIndex < 3) {
       setCurrentIndex(currentIndex + 1);
     }
   };
   const onSubmit = (values: z.infer<typeof FundSchema>) => {
-
-    // setError("");
-    // setSuccess("");
+    setError("");
+    setSuccess("");
+    if (!isAcceptTermsAndPolice) {
+      return;
+    }
     startTransition(() => {
-      createFundProfile(values).then((data) => {
-        // setError(data.error);
-        // setSuccess(data.success);
+      createFundProfile(
+        values,
+        haveMortgage,
+        isCarInstallment,
+        isDisabled,
+        isPersonalLoan,
+        isTrafficViolations,
+        isVisaInstallments,
+        isAcceptTermsAndPolice
+      ).then((data) => {
+        setError(data?.error);
+        setSuccess(data?.success);
       });
     });
     console.log(values);
@@ -169,12 +185,12 @@ export const FundForm = () => {
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className=" placeholder:text-right w-full font-sans text-right"
+                            className=" placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             {...field}
                             disabled={isPending}
                             placeholder="الهاتف / الجوال"
-                            maxLength={10}
-                            minLength={10}
+
+                            type="number"
                           />
                         </FormControl>
                         <FormMessage className="font-sans text-right" />
@@ -191,10 +207,12 @@ export const FundForm = () => {
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className=" placeholder:text-right w-full font-sans text-right"
+                            className=" placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             {...field}
                             disabled={isPending}
                             placeholder="رقم الهويه الشخصيه"
+                            inputMode="numeric"
+                            type="number"
                           />
                         </FormControl>
                         <FormMessage className="font-sans text-right" />
@@ -325,10 +343,12 @@ export const FundForm = () => {
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className=" placeholder:text-right w-full font-sans text-right"
+                            className=" placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             {...field}
                             placeholder="الراتب"
                             disabled={isPending}
+                            inputMode="numeric"
+                            type="number"
                           />
                         </FormControl>
                         <FormMessage className="font-sans text-right" />
@@ -486,10 +506,12 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className="placeholder:text-right w-full font-sans text-right"
+                              className="placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                               {...field}
                               placeholder="ادخل القسط الشهري"
                               disabled={isPending}
+                              inputMode="numeric"
+                              type="number"
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -534,10 +556,12 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className="placeholder:text-right w-full font-sans text-right"
+                              className="placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                               {...field}
                               placeholder="ادخل القسط الشهري"
                               disabled={isPending}
+                              inputMode="numeric"
+                              type="number"
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -582,10 +606,12 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className="placeholder:text-right w-full font-sans text-right"
+                              className="placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                               {...field}
                               placeholder="ادخل القسط الشهري"
                               disabled={isPending}
+                              inputMode="numeric"
+                              type="number"
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -622,7 +648,7 @@ export const FundForm = () => {
                   {isPersonalLoan === true && (
                     <FormField
                       control={form.control}
-                      name="valueOfMortgage"
+                      name="valueOfPersonalLoan"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex font-sans">
@@ -630,10 +656,12 @@ export const FundForm = () => {
                           </FormLabel>
                           <FormControl>
                             <Input
-                              className="placeholder:text-right w-full font-sans text-right"
+                              className="placeholder:text-right w-full font-sans text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                               {...field}
                               placeholder="ادخل القسط الشهري"
                               disabled={isPending}
+                              inputMode="numeric"
+                              type="number"
                             />
                           </FormControl>
                           <FormMessage className="font-sans text-right" />
@@ -712,14 +740,13 @@ export const FundForm = () => {
                     )}
                   ></FormField>
                   <div className=" my-4">
-
                     <FormField
                       control={form.control}
                       name="brand"
                       render={({ field }) => (
                         <FormItem className=" my-3">
                           <FormLabel className="flex font-sans">
-                          ماركة السيارة
+                            ماركة السيارة
                           </FormLabel>
                           <FormControl>
                             <Select
@@ -755,7 +782,7 @@ export const FundForm = () => {
                       render={({ field }) => (
                         <FormItem className="my-3">
                           <FormLabel className="flex font-sans">
-                          موديلات
+                            موديلات
                           </FormLabel>
                           <FormControl>
                             <Select
@@ -766,7 +793,7 @@ export const FundForm = () => {
                               <SelectTrigger className="">
                                 <SelectValue
                                   className="w-full"
-                                  placeholder={"اختار الموديل"|| selectedModel}
+                                  placeholder={"اختار الموديل"}
                                 />
                               </SelectTrigger>
                               <SelectContent>
@@ -777,9 +804,9 @@ export const FundForm = () => {
                                 ).map((model) => (
                                   <SelectItem
                                     key={model.id}
-                                    value={model.value || selectedModel}
+                                    value={model.value}
                                   >
-                                    {model.value || selectedModel}
+                                    {model.value}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -793,23 +820,40 @@ export const FundForm = () => {
                 </section>
               )}
               {currentIndex === 3 && (
-                <section
-                  dir="rtl"
-                  className=" flex flex-wrap items-center gap-5 justify-center space-y-4"
-                >
-                  page4
-                </section>
-              )}
-              {currentIndex === 4 && (
-                <section
-                  dir="rtl"
-                  className=" flex flex-wrap items-center gap-5 justify-center space-y-4"
-                >
-                  page5
+                <section dir="rtl" className=" grid grid-1  gap-2 ">
+                  <FormField
+                    name="isAcceptTermsAndPolice"
+                    render={() => (
+                      <FormItem>
+                        <FormLabel className="flex font-sans">
+                          الاقرار والموافقة
+                        </FormLabel>
+                        <FormLabel className="ml-2">
+                          نعم قرأت و اوافق على ذلك
+                        </FormLabel>
+                        <FormControl>
+                          <Checkbox
+                            checked={isAcceptTermsAndPolice}
+                            onCheckedChange={() =>
+                              setIsAcceptTermsAndPolice(
+                                (prevChoise) => !prevChoise
+                              )
+                            }
+                          />
+                        </FormControl>
+                        <div className=" font-light">
+                          <TextStyle
+                            header=""
+                            para="بإرسال بياناتك الشخصية، فأنت تطلب منا التواصل معك لشراء سيارة أو حصولك على تمويل سيارة أو استفسار عن العروض .قد يتم هذا التواصل عبر الهاتف او  استخدام التكنولوجيا الآلية.  فضلا لمعرفة المزيد من التفاصيل حول سياسة الخصوصة لدينا كما، قد يتم التواصل معك من قبل فريق مبيعات بهجة عسير"
+                          ></TextStyle>
+                        </div>
+                      </FormItem>
+                    )}
+                  />
                 </section>
               )}
             </>
-            {currentIndex === 4 && (
+            {currentIndex === 3 && (
               <>
                 <FormError message={error} />
                 <FormSuccess message={success} />
@@ -818,16 +862,26 @@ export const FundForm = () => {
                   disabled={isPending}
                   className="w-full font-sans"
                 >
-                  انشاء حساب
+                  انشاء طلب
                 </Button>
               </>
             )}
           </form>
         </Form>
         <section dir="rtl" className="mt-5 flex gap-4">
-          <Button onClick={handleNextClick}>التالي</Button>
-          {currentIndex !== 0 && (
-            <Button onClick={handlePrevClick}>السابق</Button>
+          {currentIndex < 3 ? (
+            <>
+              <Button onClick={handleNextClick}>التالي</Button>
+              {currentIndex !== 0 && (
+                <Button onClick={handlePrevClick}>السابق</Button>
+              )}
+            </>
+          ) : (
+            <>
+              {currentIndex !== 0 && (
+                <Button onClick={handlePrevClick}>السابق</Button>
+              )}
+            </>
           )}
         </section>
       </CardWrapper>
