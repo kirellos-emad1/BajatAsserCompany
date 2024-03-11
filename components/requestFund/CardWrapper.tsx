@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Header } from "@/components/auth/Header";
+import { Card, CardContent,  CardHeader } from "@/components/ui/card";
+import { Header } from "@/components/requestFund/Header";
 import { Social } from "@/components/auth/Social";
 import AOS from "aos";
 import "aos/dist/aos.css";

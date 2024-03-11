@@ -30,21 +30,31 @@ const Nav = () => {
             variant="outline"
             onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
           >
-            <IoClose className="w-7 h-7 transition-all" />
+            <IoClose className="w-6 h-6 transition-all" />
           </Button>
         )}
         {showMenu ? (
-          <div className="fixed left-0 shadow-4xl right-0 top-[6rem] pt-0  border-b border-b-white/20">
-            <div className="flex flex-col items-center gap-x-4 bg-white h-screen ">
-              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+          <div className="fixed z-40 left-0  right-0 top-[6.6rem] pt-0  border-b border-b-white/20">
+            <div  className="flex flex-col items-center gap-x-4 bg-white h-screen ">
+            <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
                 <Link
-                  href="/contact_us"
+                  href="/"
                   className="text-black/80"
                   onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
                 >
-                  اتصل بنا
+                  الرئيسية
                 </Link>
               </p>
+              <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
+                <Link
+                  href="/about_us"
+                  className="text-black/80"
+                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                >
+                  عن الشركة
+                </Link>
+              </p>
+            
               <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
                 <Link
                   href="/funding_request"
@@ -63,24 +73,16 @@ const Nav = () => {
                   السيارات
                 </Link>
               </p>
-              <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
+              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
                 <Link
-                  href="/about_us"
+                  href="/contact_us"
                   className="text-black/80"
                   onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
                 >
-                  عن الشركة
+                  اتصل بنا
                 </Link>
               </p>
-              <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-                <Link
-                  href="/"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-                >
-                  الرئيسية
-                </Link>
-              </p>
+             
               {!session?.user ? (
                 <div className="flex flex-col gap-3 items-center gap-x-4 ">
                   <Button

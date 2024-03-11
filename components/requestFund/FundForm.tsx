@@ -148,40 +148,40 @@ export const FundForm = () => {
       data-aos="fade-right"
       className=" space-y-2 pt-2 rounded-xl border bg-card text-card-foreground shadow"
     >
-      <div dir="rtl" className="flex gap-2 items-center  px-2">
-        <Button onClick={() => setIsCompanyFund(false)}>تمويل الافراد</Button>
-        <Button onClick={() => setIsCompanyFund(true)}>تمويل الشركات</Button>
+      <div dir="rtl" className="flex gap-2 items-center  p-2">
+        <Button onClick={() => setIsCompanyFund(false)} className={`rounded-3xl font-sans ${isCompanyFund && "bg-gray-400 transition-colors duration-700"} text-center`}>تمويل الافراد</Button>
+        <Button onClick={() => setIsCompanyFund(true)} className={`rounded-3xl font-sans ${!isCompanyFund && "bg-gray-400 transition-colors duration-700"} text-center`}>تمويل الشركات</Button>
       </div>
         {!isCompanyFund &&
          <section dir="rtl" 
          className=" grid  lg:grid-cols-4 gap-2 mx-2 grid-cols-2 ">
-          <div className={` flex items-center  gap-1    bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 0 && "bg-gray-200"}`}>
-            {currentIndex > 0 ? <BsCheckCircleFill className="w-10 h-10"/> : 
-            <Bs1CircleFill className="w-10 h-10"/>
+          <div className={` flex items-center  gap-1 bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 0 && "bg-gray-200 "} transition-colors duration-700`}>
+            {currentIndex > 0 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
+            <Bs1CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
             }
             <p className="font-sans">معلومات شخصية</p>
           </div>
-          <div className={` flex items-center  gap-1   bg-white py-1 px-2 rounded-xl shadow-lg ${currentIndex > 1 && "bg-gray-200"}`}>
-            {currentIndex > 1 ? <BsCheckCircleFill className="w-10 h-10"/> : 
-            <Bs2CircleFill className="w-10 h-10"/>
+          <div className={` flex items-center  gap-1   bg-white py-1 px-2 rounded-xl shadow-lg ${currentIndex > 1 && "bg-gray-200 "}transition-colors duration-700`}>
+            {currentIndex > 1 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
+            <Bs2CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
             }
             <p className="font-sans">معلومات ائتمانية</p>
           </div>
-          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 2 && "bg-gray-200"}`}>
-            {currentIndex > 2 ? <BsCheckCircleFill className="w-10 h-10"/> : 
-            <Bs3CircleFill className="w-10 h-10"/>
+          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex > 2 && "bg-gray-200"} transition-colors duration-700`}>
+            {currentIndex > 2 ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
+            <Bs3CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700"/>
             }
             <p className="font-sans">	السيارة المطلوبة</p>
           </div>
-          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex >=3 && isAcceptTermsAndPolice && "bg-gray-200"}`}>
-            {currentIndex >=3 && isAcceptTermsAndPolice ? <BsCheckCircleFill className=" ml-2 w-10 h-10"/> : 
-            <Bs4CircleFill className="w-10 h-10 "/>
+          <div className={` flex items-center  gap-1  bg-white py-1 px-2  rounded-xl shadow-lg ${currentIndex >=3 && isAcceptTermsAndPolice && "bg-gray-200 "}transition-colors duration-700`}>
+            {currentIndex >=3 && isAcceptTermsAndPolice ? <BsCheckCircleFill className="w-10 h-10 text-blue-800 transition-colors duration-700"/> : 
+            <Bs4CircleFill className="w-10 h-10 text-blue-700/90  transition-colors duration-700 "/>
             }
             <p className="font-sans"> اقرار و موافق</p>
           </div>
           </section>}
       {!isCompanyFund ? (
-        <CardWrapper headerLabel="" backButtonLabel="" backButtonHref="">
+        <CardWrapper headerLabel="التمويل للافراد" backButtonLabel="" backButtonHref="">
           <Form {...personalForm}>
             <form
               onSubmit={personalForm.handleSubmit(onSubmit)}
@@ -961,7 +961,7 @@ export const FundForm = () => {
           </section>
         </CardWrapper>
       ) : (
-        <CardWrapper headerLabel="" backButtonLabel="" backButtonHref="">
+        <CardWrapper headerLabel="التمويل للشركات" backButtonLabel="" backButtonHref="">
           <Form {...companyForm}>
             <form
               onSubmit={companyForm.handleSubmit(onSubmitCompanyFund)}
