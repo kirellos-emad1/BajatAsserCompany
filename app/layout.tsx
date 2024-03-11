@@ -11,20 +11,20 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      type:"image/jpeg",
-      sizes: '32x32',
-      url:'/logo.jpeg'
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "/logo.jpeg",
     },
     {
-      rel: 'icon',
-      type: 'image/jpeg',
-      sizes: '16x16',
-      url: '/logo.jpeg',
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "/logo.jpeg",
     },
     {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      url: '/logo.jpeg',
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/logo.jpeg",
     },
   ],
   title: "Bahjat Asser - Premier Car Broker in Saudi Arabia",
@@ -42,8 +42,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="/logo.jpeg" type="image/jpeg"  className="w-full h-full rounded-full" />
-      <link rel="apple-touch-icon" href="logo.jpeg"  className="w-full h-full rounded-full"/>
+      <link
+        rel="icon"
+        href="/logo.jpeg"
+        type="image/jpeg"
+        sizes="any"
+        className="w-full h-full rounded-full"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="logo.jpeg"
+        className="w-full h-full rounded-full"
+        sizes="any"
+      />
       <body className={inter.className}>
         <SessionProvider>
           <Nav />
