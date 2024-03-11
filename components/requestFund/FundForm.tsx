@@ -1073,6 +1073,8 @@ export const FundForm = () => {
                   </Button>
                 </>
               )}
+            </form>
+          </Form>
           <section dir="rtl" className="mt-5 flex gap-4">
             {currentIndex < 3 ? (
               <>
@@ -1089,8 +1091,6 @@ export const FundForm = () => {
               </>
             )}
           </section>
-            </form>
-          </Form>
         </CardWrapper>
       ) : (
         <CardWrapper
