@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import icon from "./favicon.ico"
 import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +21,18 @@ export const metadata: Metadata = {
       type: "image/jpeg",
       sizes: "16x16",
       url: "/logo.jpeg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "./favicon.ico",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "./favicon.ico",
     },
     {
       rel: "apple-touch-icon",
