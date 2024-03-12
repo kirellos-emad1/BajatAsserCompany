@@ -11,195 +11,170 @@ const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setShowMenu(false);
+    setShowMenu(!showMenu);
   };
 
   return (
-    <nav className="flex  max-md:justify-between max-md:px-4 max-md:flex-row-reverse justify-evenly  items-center  w-full ">
-      {/* mobile navbar */}
-      <div className="md:hidden flex relative  transition-all">
-        {!showMenu ? (
-          <Button
-            variant="outline"
-            onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-          >
-            <IoMenu className=" w-6 h-6" />
-          </Button>
-        ) : (
-          <Button
-            variant="outline"
-            onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-          >
-            <IoClose className="w-6 h-6 transition-all" />
-          </Button>
-        )}
-        {showMenu ? (
-          <div className="fixed z-40 left-0  right-0 top-[6.6rem] pt-0  border-b border-b-white/20">
-            <div  className="flex flex-col items-center gap-x-4 bg-white h-screen ">
-            <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
+    <nav className="flex lg:justify-evenly md:flex-row lg:flex-row md:justify-evenly justify-between flex-row-reverse items-center px-5 lg:px-5 md:px-0 ">
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
+        <button onClick={toggleMenu} className=" border-1 p-1 border-gray-400/10 rounded-lg shadow">
+          {!showMenu && (
+            <IoMenu className="w-8 h-8"  />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {showMenu && (
+        <div  className="md:hidden fixed inset-0 pt-3  bg-white z-40">
+        <button onClick={toggleMenu} className=" border-1 p-1 ml-4 m-2 border-gray-400/10 rounded-lg shadow">
+              <IoClose className="w-8 h-8"></IoClose>
+            </button>
+          <div dir="rtl" className="flex flex-col items-start mr-5 gap-2 h-full">
+            <ul className="text-lg font-medium font-sans">
+              <li className="py-2">
                 <Link
                   href="/"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                  onClick={toggleMenu}
+                  className="text-black/80 hover:text-black"
                 >
                   الرئيسية
                 </Link>
-              </p>
-              <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
+              </li>
+              <li className="py-2">
                 <Link
                   href="/about_us"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                  onClick={toggleMenu}
+                  className="text-black/80 hover:text-black"
                 >
                   عن الشركة
                 </Link>
-              </p>
-            
-              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+              </li>
+              <li className="py-2">
                 <Link
                   href="/funding_request"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                  onClick={toggleMenu}
+                  className="text-black/80 hover:text-black"
                 >
                   طلب تمويل
                 </Link>
-              </p>
-              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+              </li>
+              <li className="py-2">
                 <Link
                   href="/cars"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                  onClick={toggleMenu}
+                  className="text-black/80 hover:text-black"
                 >
                   السيارات
                 </Link>
-              </p>
-              <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
+              </li>
+              <li className="py-2">
                 <Link
                   href="/contact_us"
-                  className="text-black/80"
-                  onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
+                  onClick={toggleMenu}
+                  className="text-black/80 hover:text-black"
                 >
                   اتصل بنا
                 </Link>
-              </p>
-             
+              </li>
               {!session?.user ? (
-                <div className="flex flex-col gap-3 items-center gap-x-4 ">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="font-medium w-20 font-sans  "
-                  >
-                    <Link href="/auth/login" onClick={toggleMenu}>
+                <>
+                  <li className="py-2">
+                    <Link
+                      href="/auth/login"
+                      onClick={toggleMenu}
+                      className="text-black/80 hover:text-black"
+                    >
                       تسجيل دخول
                     </Link>
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="font-medium  font-sans w-20"
-                  >
+                  </li>
+                  <li className="py-2">
                     <Link
                       href="/auth/register"
                       onClick={toggleMenu}
-                      className=""
+                      className="text-black/80 hover:text-black"
                     >
                       انشاء حساب
                     </Link>
-                  </Button>
-                </div>
+                  </li>
+                </>
               ) : (
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="font-medium  font-sans w-20"
-                  onClick={() => {
-                    signOut();
-                    toggleMenu();
-                  }}
-                >
-                  تسجيل خروج
-                </Button>
+                <li className="py-2">
+                  <button
+                    onClick={() => {
+                      signOut();
+                      toggleMenu();
+                    }}
+                    className="text-black/80 hover:text-black"
+                  >
+                    تسجيل خروج
+                  </button>
+                </li>
               )}
-            </div>
+            </ul>
           </div>
-        ) : (
-          <></>
-        )}
-      </div>
-      {/* desktop navbar */}
-      <div className="sm:flex hidden">
+        </div>
+      )}
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex font-medium  text-lg lg:space-x-8 md:space-x-3 font-sans">
         {!session?.user ? (
-          <div className="flex gap-x-4 ">
-            <Button
-              variant="default"
-              size="sm"
-              className="font-medium max-[768px]:hidden  font-sans text-lg "
-            >
-              <Link href="/auth/login">تسجيل دخول</Link>
-            </Button>
-            <Button
-              size="sm"
-              variant="default"
-              onClick={toggleMenu}
-              className="font-medium max-[768px]:hidden  font-sans text-lg "
-            >
-              <Link href="/auth/register" className="">
+          <>
+            <Button>
+              <Link
+                href="/auth/register"
+                className="text-white hover:text-black"
+              >
                 انشاء حساب
               </Link>
             </Button>
-          </div>
+            <Button>
+              <Link
+                href="/auth/login"
+                className="text-white hover:text-black"
+              >
+                تسجيل دخول
+              </Link>
+            </Button>
+          </>
         ) : (
           <Button
-            type="button"
-            size="sm"
-            className="max-[768px]:hidden"
             onClick={() => signOut()}
+            className="text-black/80 hover:text-black"
           >
             تسجيل خروج
           </Button>
         )}
       </div>
-      <div className="flex gap-x-4 max-[768px]:hidden  ">
-        <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-          <Link
-            href="/contact_us"
-            className="text-black/80"
-            onClick={() => setShowMenu((prevShowMenu) => !prevShowMenu)}
-          >
-            اتصل بنا
-          </Link>
-        </p>
-        <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-          <Link href="/funding_request" className="text-black/80">
-            طلب تمويل
-          </Link>
-        </p>
-        <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-          <Link href="/cars" className="text-black/80">
-            السيارات
-          </Link>
-        </p>
-        <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-          <Link href="/about_us" className="text-black/80">
-            عن الشركة
-          </Link>
-        </p>
-        <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-          <Link href="/" className="text-black/80">
-            الرئيسية
-          </Link>
-        </p>
+      <div dir="rtl" className="hidden text-lg font-medium md:flex lg:space-x-8 font-sans md:space-x-3">
+        <Link href="/" className="text-black/80 lg:mx-8 md:mx-3 hover:text-black">
+          الرئيسية
+        </Link>
+        <Link href="/about_us" className="text-black/80 hover:text-black">
+          عن الشركة
+        </Link>
+        <Link
+          href="/funding_request"
+          className="text-black/80 hover:text-black"
+        >
+          طلب تمويل
+        </Link>
+        <Link href="/cars" className="text-black/80 hover:text-black">
+          السيارات
+        </Link>
+        <Link href="/contact_us" className="text-black/80 hover:text-black">
+          اتصل بنا
+        </Link>
       </div>
-      <Link href="/" className="flex gap-2 flex-center">
+      {/* Logo */}
+      <Link href="/" passHref>
         <Image
           src="/logo.png"
           alt="logo"
           width={100}
           height={100}
-          onClick={toggleMenu}
-          priority
-          className=" w-24"
+          className="w-24"
         />
       </Link>
     </nav>
@@ -207,83 +182,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-{
-  /* {!session?.user ? (
-  <div className="flex gap-x-4 ">
-    <Button variant="default" className="font-medium  font-sans text-lg ">
-      <Link href="/auth/login">تسجيل دخول</Link>
-    </Button>
-    <Button
-      variant="default"
-      className="font-medium  font-sans text-lg   "
-    >
-      <Link href="/auth/register" className="">
-        انشاء حساب
-      </Link>
-    </Button>
-  </div>
-) : (
-  <div className="flex gap-x-4">
-    <form
-      action={async () => {
-        "use server";
-
-        await signOut();
-      }}
-    >
-      <Button type="submit">تسجيل خروج</Button>
-    </form>
-  </div>
-)}
-<div className="flex gap-x-4 ">
-  <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-    <Link href="/" className="text-black/80">
-      طلب تمويل
-    </Link>
-  </p>
-  <p className=" font-medium  font-sans text-lg  p-2 rounded-md border-black">
-    <Link href="/" className="text-black/80">
-      السيارات
-    </Link>
-  </p>
-  <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-    <Link href="/" className="text-black/80">
-      عن الشركة
-    </Link>
-  </p>
-  <p className=" font-medium  font-sans text-lg   p-2 rounded-md border-black">
-    <Link href="/" className="text-black/80">
-      الرئيسية
-    </Link>
-  </p>
-</div> */
-}
-
-{
-  /* {!session?.user ? (
-          <div className="flex gap-x-4 ">
-            <Button
-              variant="default"
-              className="font-medium  font-sans text-lg "
-            >
-              <Link href="/auth/login">تسجيل دخول</Link>
-            </Button>
-            <Button
-              variant="default"
-              className="font-medium  font-sans text-lg   "
-            >
-              <Link href="/auth/register" className="">
-                انشاء حساب
-              </Link>
-            </Button>
-          </div>
-        ) : (
-          <Button type="button" onClick={()=>{
-            toggleMenu
-            signOut
-            }}>
-            تسجيل خروج
-          </Button>
-        )} */
-}
