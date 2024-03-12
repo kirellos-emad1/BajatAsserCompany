@@ -8,9 +8,26 @@ export const getFinanceProfileById = async (id: string) => {
         return null
     }
 }
-export const getFinanceProfile = async () => {
+export const getAllFundProfile = async () => {
     try {
         const financeProfile = await db.financeProfile.findMany()
+        return financeProfile
+    } catch {
+        return null
+    }
+}
+export const getCompanyFundById = async (id: string) => {
+    try {
+        const financeProfile = await db.companyFund.findUnique({ where: { id: id } })
+        return financeProfile
+
+    } catch {
+        return null
+    }
+}
+export const getAllCompanyFund = async () => {
+    try {
+        const financeProfile = await db.companyFund.findMany()
         return financeProfile
     } catch {
         return null

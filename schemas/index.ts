@@ -16,9 +16,7 @@ export const RegisterSchema = z.object({
   password: z.string().min(8, {
     message: "يجب ان لا تقل كلمه السر عن 	٨ احرف/ارقام",
   }),
-  name: z.string().regex(/^[؀-ۿ\s]+$/, {
-    message: 'برجاء كتابه اسم المستخدم باللغه العربيه'
-  }).min(3, {
+  name: z.string().min(3, {
     message: "يرجي ادخال اسم الامستخدم"
   })
 });

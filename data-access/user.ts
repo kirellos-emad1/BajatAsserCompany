@@ -27,7 +27,6 @@ export const getAllUsers = async ()=> {
                 id:true,
                 name:true,
                 email:true,
-                emailVerified:true,
                 role:true
             }
         })

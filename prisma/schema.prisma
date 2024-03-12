@@ -61,10 +61,10 @@ enum VehicleClass {
 }
 
 // User model
-
 enum UserRole {
   ADMIN
   USER
+  MEMBER
 }
 
 model User {

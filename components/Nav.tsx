@@ -18,20 +18,27 @@ const Nav = () => {
     <nav className="flex lg:justify-evenly md:flex-row lg:flex-row md:justify-evenly justify-between flex-row-reverse items-center px-5 lg:px-5 md:px-0 ">
       {/* Mobile Menu Button */}
       <div className="md:hidden">
-        <button onClick={toggleMenu} className=" border-1 p-1 border-gray-400/10 rounded-lg shadow">
-          {!showMenu && (
-            <IoMenu className="w-8 h-8"  />
-          )}
+        <button
+          onClick={toggleMenu}
+          className=" border-1 p-1 border-gray-400/10 rounded-lg shadow"
+        >
+          {!showMenu && <IoMenu className="w-8 h-8" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {showMenu && (
-        <div  className="md:hidden fixed inset-0 pt-3  bg-white z-40">
-        <button onClick={toggleMenu} className=" border-1 p-1 ml-4 m-2 border-gray-400/10 rounded-lg shadow">
-              <IoClose className="w-8 h-8"></IoClose>
-            </button>
-          <div dir="rtl" className="flex flex-col items-start mr-5 gap-2 h-full">
+        <div className="md:hidden fixed inset-0 pt-3  bg-white z-40">
+          <button
+            onClick={toggleMenu}
+            className=" border-1 p-1 ml-4 m-2 border-gray-400/10 rounded-lg shadow"
+          >
+            <IoClose className="w-8 h-8"></IoClose>
+          </button>
+          <div
+            dir="rtl"
+            className="flex flex-col items-start mr-5 gap-2 h-full"
+          >
             <ul className="text-lg font-medium font-sans">
               <li className="py-2">
                 <Link
@@ -100,17 +107,29 @@ const Nav = () => {
                   </li>
                 </>
               ) : (
-                <li className="py-2">
-                  <button
-                    onClick={() => {
-                      signOut();
-                      toggleMenu();
-                    }}
-                    className="text-black/80 hover:text-black"
-                  >
-                    تسجيل خروج
-                  </button>
-                </li>
+                <>
+                  {session.user.role === "ADMIN" ||
+                  session.user.role === "MEMBER" ? (
+                    <li className="py-2">
+                      <Button className="text-white hover:text-black">
+                        <Link
+                          href="/dashboard"
+                          className="text-white hover:text-black"
+                        >
+                          لوحه التحكم
+                        </Link>
+                      </Button>
+                    </li>
+                  ) : null}
+                  <li className="py-2">
+                    <Button
+                      onClick={() => signOut()}
+                      className="text-white hover:text-black"
+                    >
+                      تسجيل خروج
+                    </Button>
+                  </li>
+                </>
               )}
             </ul>
           </div>
@@ -130,25 +149,37 @@ const Nav = () => {
               </Link>
             </Button>
             <Button>
-              <Link
-                href="/auth/login"
-                className="text-white hover:text-black"
-              >
+              <Link href="/auth/login" className="text-white hover:text-black">
                 تسجيل دخول
               </Link>
             </Button>
           </>
         ) : (
-          <Button
-            onClick={() => signOut()}
-            className="text-black/80 hover:text-black"
-          >
-            تسجيل خروج
-          </Button>
+          <>
+            {session.user.role === "ADMIN" || session.user.role === "MEMBER" ? (
+              <Button className="text-white hover:text-black">
+                <Link href="/dashboard" className="text-white hover:text-black">
+                  لوحه التحكم
+                </Link>
+              </Button>
+            ) : null}
+            <Button
+              onClick={() => signOut()}
+              className="text-white hover:text-black"
+            >
+              تسجيل خروج
+            </Button>
+          </>
         )}
       </div>
-      <div dir="rtl" className="hidden text-lg font-medium md:flex lg:space-x-8 font-sans md:space-x-3">
-        <Link href="/" className="text-black/80 lg:mx-8 md:mx-3 hover:text-black">
+      <div
+        dir="rtl"
+        className="hidden text-lg font-medium md:flex lg:space-x-8 font-sans md:space-x-3"
+      >
+        <Link
+          href="/"
+          className="text-black/80 lg:mx-8 md:mx-3 hover:text-black"
+        >
           الرئيسية
         </Link>
         <Link href="/about_us" className="text-black/80 hover:text-black">
