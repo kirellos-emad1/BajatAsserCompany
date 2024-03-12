@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
               </Link>
 
               <Link
-                href="https://api.whatsapp.com/send/?phone=9660557109911&text=لدل+استفسار&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone=9660557109911&text=لدى+استفسار&type=phone_number&app_absent=0"
                 target="_blank"
               >
                 <FaWhatsapp className=" w-8 h-8 text-green-500" />
