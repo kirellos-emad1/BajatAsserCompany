@@ -52,8 +52,8 @@ export const UserTableComponent = () => {
               (user: any) =>
                 user.role !== "ADMIN" && (
                   <TableRow key={user.id}>
-                    <TableCell>{user.email}</TableCell>
                     <TableCell>{user.name}</TableCell>
+                    <TableCell>{user.email}</TableCell>
                     {user.role === "USER" && (
                       <>
                         <TableCell>مستخدم</TableCell>
