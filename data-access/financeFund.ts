@@ -16,6 +16,16 @@ export const getAllFundProfile = async () => {
         return null
     }
 }
+export const getArchiveFundProfile = async () => {
+    try {
+        const financeProfile = await db.financeProfile.findMany({
+            where:{isArchive:true}
+        })
+        return financeProfile
+    } catch {
+        return null
+    }
+}
 export const getCompanyFundById = async (id: string) => {
     try {
         const financeProfile = await db.companyFund.findUnique({ where: { id: id } })
@@ -28,6 +38,16 @@ export const getCompanyFundById = async (id: string) => {
 export const getAllCompanyFund = async () => {
     try {
         const financeProfile = await db.companyFund.findMany()
+        return financeProfile
+    } catch {
+        return null
+    }
+}
+export const getArchiveCompanyFund = async () => {
+    try {
+        const financeProfile = await db.companyFund.findMany({
+            where:{isArchive:true}
+        })
         return financeProfile
     } catch {
         return null

@@ -50,7 +50,7 @@ export const FundSchema = z.object({
       {
         message: "الرجاء ادخال رقم الجوال المكون من 10 خانات"
       }).max(10, {
-          message: "الرجاء ادخال رقم الجوال المكون من 10 خانات"
+        message: "الرجاء ادخال رقم الجوال المكون من 10 خانات"
       }),
 
   zone: z.string().regex(/^[؀-ۿ\s]+$/, {
@@ -107,7 +107,37 @@ export const companyFundSchema = z.object({
   bank: z.string().regex(/^[؀-ۿ\s]+$/, {
     message: "برجاء اختيار البنك"
   }),
-  countOfCars :z.string().regex(/^[0-9]+$/, {
+  countOfCars: z.string().regex(/^[0-9]+$/, {
     message: "برجاء كتابه عدد السيارات"
   })
+})
+
+export const AddCar = z.object({
+  brand: z.string().min(1, {
+    message: "برجاء ادخال / اختيار"
+  }),
+  model: z.string().min(1, {
+    message: "برجاء ادخال / اختيار"
+  }),
+  vehicleClass: z.string().min(1, {
+    message: "برجاء اختيار"
+  }),
+  yearOfManufacture: z.string().min(1, {
+    message: "برجاء اختيار"
+  }),
+  horsePower: z.string().optional(),
+  fuelType: z.string().min(1, {
+    message: "برجاء اختيار"
+  }),
+  engineCapacity: z.string().optional(),
+  price: z.string().optional(),
+  transmission: z.string().min(1, {
+    message: "برجاء اختيار"
+  }),
+  images: z.array(z.string()).optional(),
+  AutomotivePropulsionSystems: z.string().min(1,{
+    message:"اختار نظام الدفع"
+  }),
+
+  addToMainPage: z.boolean().optional()
 })

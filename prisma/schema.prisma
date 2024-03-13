@@ -96,17 +96,18 @@ model Account {
 
 model Cars {
   id                String   @id @default(cuid())
-  vehicleClass      String
-  yearOfManufacture String
-  brand             String
-  model             String
-  horsePower        String
-  fuelType          String
-  engineCapacity    String
-  price             String
-  body_type         String
-  transmission      String
+  vehicleClass      String?
+  yearOfManufacture String?
+  brand             String?
+  model             String?
+  horsePower        String?
+  fuelType          String?
+  engineCapacity    String?
+  price             String?
+  transmission      String?
+  AutomotivePropulsionSystems String?
   addToMainPage Boolean? @default(false)
+  images String[]
   created_at        DateTime @default(now())
   updated_at        DateTime @updatedAt
 }
