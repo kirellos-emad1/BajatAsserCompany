@@ -32,8 +32,8 @@ export const UserTableComponent = () => {
 
   if (session?.user?.role === "ADMIN" || session?.user?.role === "MEMBER") {
     return (
-      <main className="w-full h-full">
-        <Table>
+      <main className=" overflow-x-auto">
+        <Table className=" table-auto w-full">
           <TableHeader>
             <TableRow>
               <TableHead>الاسم</TableHead>
@@ -61,8 +61,12 @@ export const UserTableComponent = () => {
                           <>
                             <TableCell>
                               <form
-                                onSubmit={async () => {
-                                  deleteUser(user.id);
+                                onSubmit={async (e) => {
+                                  e.preventDefault();
+                                  await deleteUser(user.id);
+                                  const res = await fetch("/api/user-data");
+                                  const data = await res.json();
+                                  setAllUserData(data);
                                 }}
                               >
                                 <Button
@@ -77,11 +81,15 @@ export const UserTableComponent = () => {
                             </TableCell>
                             <TableCell>
                               <form
-                                onSubmit={async () => {
-                                  updateUserRoleToMember(
+                                onSubmit={async (e) => {
+                                  e.preventDefault();
+                                  await updateUserRoleToMember(
                                     user.id,
                                     session.user.id!
                                   );
+                                  const res = await fetch("/api/user-data");
+                                  const data = await res.json();
+                                  setAllUserData(data);
                                 }}
                               >
                                 <Button size="sm" type="submit">
@@ -100,8 +108,12 @@ export const UserTableComponent = () => {
                           <>
                             <TableCell>
                               <form
-                                onSubmit={async () => {
-                                  deleteUser(user.id);
+                                onSubmit={async (e) => {
+                                  e.preventDefault();
+                                  await deleteUser(user.id);
+                                  const res = await fetch("/api/user-data");
+                                  const data = await res.json();
+                                  setAllUserData(data);
                                 }}
                               >
                                 <Button
@@ -116,11 +128,15 @@ export const UserTableComponent = () => {
                             </TableCell>
                             <TableCell>
                               <form
-                                onSubmit={async () => {
-                                  downgradeMemberToUser(
+                                onSubmit={async (e) => {
+                                  e.preventDefault();
+                                  await downgradeMemberToUser(
                                     user.id,
                                     session.user.id!
                                   );
+                                  const res = await fetch("/api/user-data");
+                                  const data = await res.json();
+                                  setAllUserData(data);
                                 }}
                               >
                                 <Button

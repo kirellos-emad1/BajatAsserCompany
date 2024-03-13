@@ -114,6 +114,7 @@ const Nav = () => {
                       <Button className="text-white hover:text-black">
                         <Link
                           href="/dashboard"
+                          onClick={toggleMenu}
                           className="text-white hover:text-black"
                         >
                           لوحه التحكم
@@ -123,7 +124,10 @@ const Nav = () => {
                   ) : null}
                   <li className="py-2">
                     <Button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        signOut();
+                        toggleMenu();
+                      }}
                       className="text-white hover:text-black"
                     >
                       تسجيل خروج
