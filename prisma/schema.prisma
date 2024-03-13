@@ -35,12 +35,13 @@ model FinanceProfile {
   year_of_manufacture    String
   brand                  String
   model                  String
+  isArchive              Boolean? @default(false)
   created_at             DateTime @default(now())
   updated_at             DateTime @updatedAt
 }
 
 model CompanyFund {
-  id                   String  @id @default(cuid())
+  id                   String   @id @default(cuid())
   companyName          String
   mobileNumber         String
   telNumber            String?
@@ -49,15 +50,9 @@ model CompanyFund {
   carsCount            String
   bank                 String
   corporateAnniversary String
-
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-}
-
-enum VehicleClass {
-  STANDARD
-  SEMIFULL
-  FULL
+  isArchive            Boolean? @default(false)
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
 }
 
 // User model
@@ -99,49 +94,19 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-enum Transmission {
-  AUTOMATIC
-  MANUAL
-}
-
-enum BodyType {
-  SUV
-  SEDAN
-  TRUCK
-  COUPE
-  VAN
-  HYBRID
-  ELECTRIC
-  HATCHBACK
-  SPORT
-  LUXURY
-}
-
 model Cars {
-  id                  String       @id @default(cuid())
-  vehicleClass        VehicleClass
-  year_of_manufacture Int
-  brand               String
-  model               String
-  horse_power         String
-  fuel_type           String
-  price               Float
-  body_type           BodyType
-  transmission        Transmission
-  created_at          DateTime     @default(now())
-  updated_at          DateTime     @updatedAt
-}
-
-model CarBrand {
-  id         String     @id @default(cuid())
-  brand_name String
-  model      CarModel[]
-}
-
-model CarModel {
-  id         String   @id @default(cuid())
-  model_name String
-  year       Int
-  brand_id   String
-  car_brand  CarBrand @relation(fields: [brand_id], references: [id])
+  id                String   @id @default(cuid())
+  vehicleClass      String
+  yearOfManufacture String
+  brand             String
+  model             String
+  horsePower        String
+  fuelType          String
+  engineCapacity    String
+  price             String
+  body_type         String
+  transmission      String
+  addToMainPage Boolean? @default(false)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
 }
