@@ -70,10 +70,9 @@ export default function RootLayout({
       />
       <body className={inter.className}>
         <SessionProvider>
-          <Nav />
-        </SessionProvider>
         {children}
         <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

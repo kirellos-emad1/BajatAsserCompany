@@ -1,7 +1,9 @@
-
+import Nav from "@/components/Nav"
 const page = () => {
   return (
-    <main className=""></main>
+    <main className="">
+      <Nav/>
+    </main>
   )
 }
 
