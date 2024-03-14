@@ -1,30 +1,19 @@
 "use client";
 import { useEffect } from "react";
-import { Card, CardContent,  CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Header } from "./Header";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 interface CarCardWrapperProps {
   children: React.ReactNode;
-  headerLabel: string;
-
 }
 
-export const CarCardWrapper = ({
-  children,
-  headerLabel
-
-}: CarCardWrapperProps) => {
+export const CarCardWrapper = ({ children }: CarCardWrapperProps) => {
   return (
-    <Card className="lg:w-[500px] md:w-[400px] w-[300px] shadow-md">
-      <CardHeader>
-        <Header label={headerLabel} />
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-
+    <Card className="lg:w-[350px] md:w-[250px] w-[200px] shadow-md p-0">
+      <CardContent className="p-0">{children}</CardContent>
     </Card>
   );
 };
