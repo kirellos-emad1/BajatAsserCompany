@@ -56,6 +56,7 @@ const page = async () => {
                 <TableCell>{fund.mobile}</TableCell>
                 <TableCell>{fund.personal_id}</TableCell>
                 <TableCell>{fund.zone}</TableCell>
+                <TableCell>{fund.resident}</TableCell>
                 <TableCell>{fund.salary}</TableCell>
                 <TableCell>{fund.bank}</TableCell>
                 <TableCell>{fund.isDisabled ? "نعم" : "لا"}</TableCell>
@@ -83,7 +84,6 @@ const page = async () => {
                 <TableCell>{fund.vehicle_class}</TableCell>
                 <TableCell>{fund.year_of_manufacture}</TableCell>
                 <TableCell>{fund.brand}</TableCell>
-                <TableCell>{fund.mobile}</TableCell>
                 <TableCell>{fund.model}</TableCell>
                 {!fund.isArchive && (
                   <TableCell>
