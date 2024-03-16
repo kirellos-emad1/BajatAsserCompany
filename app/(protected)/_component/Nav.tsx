@@ -42,7 +42,7 @@ const Nav = () => {
             <ul className="text-lg font-medium font-sans">
               <li className="py-2">
                 <Link
-                  href="/dashboard/company-fund-requests"
+                  href="/dashboard/personal-fund-requests"
                   onClick={toggleMenu}
                   className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
                 >
@@ -51,7 +51,7 @@ const Nav = () => {
               </li>
               <li className="py-2">
                 <Link
-                  href="/dashboard/personal-fund-requests"
+                  href="/dashboard/company-fund-requests"
                   onClick={toggleMenu}
                   className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
                 >
@@ -110,13 +110,13 @@ const Nav = () => {
       </div>
       <div className="hidden md:flex font-medium  text-md lg:space-x-6 md:space-x-1 font-sans">
         <Link
-          href="/dashboard/company-fund-requests"
+          href="/dashboard/personal-fund-requests"
           className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
         >
           مراجعه طلبات التمويل للافراد
         </Link>
         <Link
-          href="/dashboard/personal-fund-requests"
+          href="/dashboard/company-fund-requests"
           className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
         >
           مراجعه طلبات التمويل للشركات

@@ -14,13 +14,14 @@ import {
   getArchiveCompanyFund,
   getArchiveFundProfile,
 } from "@/data-access/financeFund";
+import { archiveCompanyFund as archiveCompany } from "@/actions/archiveCompanyFund";
+import { archivePersonalFund as archivePersonal } from "@/actions/archivePersonalFund";
 
 const page = async () => {
   const session = await auth();
-  console.log(session);
   const archiveCompanyFund = await getArchiveCompanyFund();
   const archivePersonalFund = await getArchiveFundProfile();
-  console.log(archivePersonalFund);
+  
   if (session?.user?.role === "ADMIN" || session?.user?.role === "MEMBER") {
     return (
       <main className=" overflow-x-auto">
@@ -38,6 +39,7 @@ const page = async () => {
               <TableHead>رقم الهاتف الثابت (اختياري )</TableHead>
               <TableHead>البنك</TableHead>
               <TableHead>عدد السيارات</TableHead>
+              <TableHead>ارشفه</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -51,6 +53,19 @@ const page = async () => {
                 <TableCell>{fund.telNumber || "لا يوجد"}</TableCell>
                 <TableCell>{fund.bank}</TableCell>
                 <TableCell>{fund.carsCount}</TableCell>
+                {fund.isArchive && (
+                  <TableCell>
+                    <form
+                      action={async () => {
+                        "use server";
+                        await archiveCompany(fund.id, false);
+                        
+                      }}
+                    >
+                      <Button size='sm' className="font-sans" variant="destructive"> الغاء الارشفه</Button>
+                    </form>
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
@@ -78,7 +93,8 @@ const page = async () => {
               <TableHead>فئة السيارة</TableHead>
               <TableHead>سنة الصنع</TableHead>
               <TableHead>ماركة السيارة</TableHead>
-              <TableHead>موديلات</TableHead>
+              <TableHead>موديل</TableHead>
+              <TableHead>ارشفه</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -93,14 +109,43 @@ const page = async () => {
                 <TableCell>{fund.bank}</TableCell>
                 <TableCell>{fund.isDisabled ? "نعم" : "لا"}</TableCell>
                 <TableCell>{fund.isTrafficViolations ? "نعم" : "لا"}</TableCell>
-                <TableCell>{fund.haveMortgage ? `نعم وقدره ${fund.valueOfMortgage}` : "لا"}</TableCell>
-                <TableCell>{fund.isVisaInstallments ? `نعم وقدره ${fund.valueOfVisaInstallment}` : "لا"}</TableCell>
-                <TableCell>{fund.isCarInstallment ? `نعم وقدره ${fund.valueOfCarInstallment}` : "لا"}</TableCell>
-                <TableCell>{fund.isPersonalLoan ? `نعم وقدره ${fund.valueOfPersonalLoan}` : "لا"}</TableCell>
+                <TableCell>
+                  {fund.haveMortgage
+                    ? `نعم وقدره ${fund.valueOfMortgage}`
+                    : "لا"}
+                </TableCell>
+                <TableCell>
+                  {fund.isVisaInstallments
+                    ? `نعم وقدره ${fund.valueOfVisaInstallment}`
+                    : "لا"}
+                </TableCell>
+                <TableCell>
+                  {fund.isCarInstallment
+                    ? `نعم وقدره ${fund.valueOfCarInstallment}`
+                    : "لا"}
+                </TableCell>
+                <TableCell>
+                  {fund.isPersonalLoan
+                    ? `نعم وقدره ${fund.valueOfPersonalLoan}`
+                    : "لا"}
+                </TableCell>
                 <TableCell>{fund.vehicle_class}</TableCell>
                 <TableCell>{fund.year_of_manufacture}</TableCell>
                 <TableCell>{fund.brand}</TableCell>
                 <TableCell>{fund.mobile}</TableCell>
+                <TableCell>{fund.model}</TableCell>
+                {fund.isArchive && (
+                  <TableCell>
+                    <form
+                      action={async () => {
+                        "use server";
+                        await archivePersonal(fund.id, false);
+                      }}
+                    >
+                      <Button size='sm' className="font-sans"  variant="destructive"> الغاء الارشفه</Button>
+                    </form>
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
