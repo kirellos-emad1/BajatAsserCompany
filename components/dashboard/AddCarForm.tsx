@@ -36,6 +36,7 @@ export const AddCarForm = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const [images, setImages] = useState<FileList | null>(null);
   const [addToMainPage, setAddToMainPage] = useState<boolean>(false);
+  const [inStock, setInStock] = useState<boolean>(false);
 
   const [isPending, startTransition] = useTransition();
   const submitImage = async () => {
@@ -58,16 +59,22 @@ export const AddCarForm = () => {
     setError("");
     setSuccess("");
     startTransition(() => {
-      addCar({ ...values, images: arr, addToMainPage: addToMainPage }, id).then(
-        (data) => {
-          setError(data?.error);
-          setSuccess(data?.success);
-          if (data.success) {
-            form.reset();
-            setImages(null);
-          }
+      addCar(
+        {
+          ...values,
+          images: arr,
+          addToMainPage: addToMainPage,
+          stock: inStock,
+        },
+        id
+      ).then((data) => {
+        setError(data?.error);
+        setSuccess(data?.success);
+        if (data.success) {
+          form.reset();
+          setImages(null);
         }
-      );
+      });
     });
   };
   const form = useForm<z.infer<typeof AddCar>>({
@@ -394,6 +401,31 @@ export const AddCarForm = () => {
                       <Checkbox
                         checked={addToMainPage}
                         onCheckedChange={() => setAddToMainPage(true)}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="inStock"
+                render={() => (
+                  <FormItem>
+                    <FormLabel className="flex font-sans">
+                      هل السيارة متوفره
+                    </FormLabel>
+                    <FormLabel className="ml-2">لا</FormLabel>
+                    <FormControl>
+                      <Checkbox
+                        checked={!inStock}
+                        onCheckedChange={() => setInStock(false)}
+                      />
+                    </FormControl>
+                    <span className="mx-2">|</span>
+                    <FormLabel className="ml-2">نعم</FormLabel>
+                    <FormControl>
+                      <Checkbox
+                        checked={inStock}
+                        onCheckedChange={() => setInStock(true)}
                       />
                     </FormControl>
                   </FormItem>

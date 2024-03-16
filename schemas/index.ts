@@ -139,5 +139,6 @@ export const AddCar = z.object({
     message:"اختار نظام الدفع"
   }),
 
-  addToMainPage: z.boolean().optional()
+  addToMainPage: z.boolean().optional(),
+  stock: z.boolean().optional()
 })
