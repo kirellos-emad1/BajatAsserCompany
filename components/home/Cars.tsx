@@ -19,9 +19,12 @@ interface CarsData {
   addToMainPage: string;
   stock: string;
 }
+interface CarsProps {
+  cars: CarsData[]; // Assuming CarsData is defined elsewhere
+}
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Cars = ({ cars }: { cars: CarsData[] }) => {
+const Cars: React.FC<CarsProps> = ({ cars }) => {
   // const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [loading, setLoading] = useState(true);
