@@ -21,27 +21,27 @@ interface CarsData {
 }
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Cars = () => {
-  const [cars, setCars] = useState<CarsData[]>([]);
+const Cars = ({ cars }: { cars: CarsData[] }) => {
+  // const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   console.log(cars)
 
-  useEffect(() => {
-    async function getCarsData() {
-      try {
-        const res = await fetch("/api/main-page-car");
-        const data = await res.json();
-        setCars(data);
-        setLoading(false); // Set loading to false when data is fetched
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Make sure to set loading to false even if there's an error
-      }
-    }
+  // useEffect(() => {
+  //   async function getCarsData() {
+  //     try {
+  //       const res = await fetch("/api/main-page-car");
+  //       const data = await res.json();
+  //       setCars(data);
+  //       setLoading(false); // Set loading to false when data is fetched
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       setLoading(false); // Make sure to set loading to false even if there's an error
+  //     }
+  //   }
 
-    getCarsData();
-  }, []);
+  //   getCarsData();
+  // }, []);
 
   const changeImage = (delta: number) => {
     setCurrentImageIndex(

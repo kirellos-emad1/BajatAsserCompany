@@ -31,7 +31,7 @@ const page = async () => {
         <hr />
       </section>
       <section  className="  py-10 lg:px-32  px-10">
-        <Cars/>
+        <Cars cars={cars}/>
       </section>
     </main>
   );
