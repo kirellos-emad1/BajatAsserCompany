@@ -7,5 +7,5 @@ export async function GET(
 ) {
     const allCars = await getAllCarsInMainPage();
 
-    return NextResponse.json(allCars)
+    return Response.json(allCars)
 }

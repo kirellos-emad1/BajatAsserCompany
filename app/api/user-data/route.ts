@@ -1,10 +1,6 @@
 import { getAllUsers } from "@/data-access/user";
-import { currentRole } from "@/lib/auth";
-import { UserRole } from "@prisma/client";
-import { NextResponse } from 'next/server'
-export async function GET(
-) {
+export async function GET(request:Request) {
     const allUserData = await getAllUsers();
 
-    return NextResponse.json(allUserData)
+    return Response.json(allUserData)
 }
