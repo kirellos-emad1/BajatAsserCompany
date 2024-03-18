@@ -18,11 +18,7 @@ export const createFundProfile = async (values: z.infer<typeof FundSchema>,
     }
 
     const { salary, name, mobileNumber, personalId, zone, email, resident, workSector, bank, valueOfCarInstallment, valueOfMortgage, valueOfPersonalLoan, valueOfVisaInstallment, vehicleClass, yearOfManufacture, model, brand } = validatedFields.data;
-    const isValidName = name.split(" ")
-    if(isValidName.length !== 3 ){
-        return { error: "الرجاء كتابه الاسم ثلاثي" }
 
-    }
     if (isCarInstallment === true && valueOfCarInstallment === "") {
         return { error: "الرجاء كتابه اقساط السياره" }
     }

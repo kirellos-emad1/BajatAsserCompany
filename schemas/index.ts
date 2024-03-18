@@ -32,9 +32,7 @@ export const NewPasswordSchema = z.object({
 });
 
 export const FundSchema = z.object({
-  name: z.string().regex(/^[؀-ۿ\s]+$/, {
-    message: 'برجاء كتابه اسم المستخدم باللغه العربيه'
-  }).min(3, {
+  name: z.string().min(3, {
     message: "يرجي ادخال اسم الامستخدم"
   }),
   email: z.string().email({
