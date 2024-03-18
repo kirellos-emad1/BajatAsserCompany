@@ -27,7 +27,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const Cars: React.FC<CarsProps> = ({ cars }) => {
   // const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   console.log(cars)
 
   // useEffect(() => {
@@ -71,13 +71,13 @@ const Cars: React.FC<CarsProps> = ({ cars }) => {
     </div>
   ));
 
-  if (loading) {
-    return (
-      <section className="mx-4 grid  md:grid-cols-2  lg:grid-cols-3 gap-3">
-        {skeletons}
-      </section>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <section className="mx-4 grid  md:grid-cols-2  lg:grid-cols-3 gap-3">
+  //       {skeletons}
+  //     </section>
+  //   );
+  // }
   return (
     <section dir="rtl" className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
 
