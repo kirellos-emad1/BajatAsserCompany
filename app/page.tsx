@@ -13,7 +13,7 @@ export default async function Home() {
     <main>
       <Nav />
       <HeaderSection />
-      <section dir="rtl" className="w-full py-5 px-44  bg-regal-blue ">
+      <section dir="rtl" className="w-full py-5 lg:px-44  px-10 bg-regal-blue ">
         <div className=" grid lg:grid-cols-3 my-10  md:grid-cols-2 gap-y-3 justify-items-center place-content-center">
           <Link href="/funding_request">
             <Card className=" flex flex-col items-center justify-center bg-sky-400  text-white border-sky-400 shadow-2xl w-[350px] p-0 h-[300px]">
@@ -59,7 +59,7 @@ export default async function Home() {
             </Card>
           </Link>
         </div>
-        <article>
+        <article className="w-full">
           <h1 className="text-[28px] text-white font-sans font-semibold  ">
             عن شركتنا
           </h1>
@@ -73,7 +73,7 @@ export default async function Home() {
           </Button>
         </article>
       </section>
-      <section dir="rtl" className=" py-10 px-44">
+      <section dir="rtl" className=" py-10 lg:px-44  px-10">
         <div className="">
           <article className="w-full flex items-center justify-between">
             <h1 className="text-[28px] py-5  text-black font-sans font-semibold  ">
@@ -93,7 +93,7 @@ export default async function Home() {
           <Cars />
         </div>
       </section>
-      <section dir="rtl" className=" py-10 px-44">
+      <section dir="rtl" className=" py-10 lg:px-44  px-10">
         <div className="">
           <article className="w-full flex items-center justify-between">
             <h1 className="text-[28px] py-5  text-black font-sans font-semibold  ">
@@ -111,21 +111,102 @@ export default async function Home() {
           </article>
           <hr />
           <div className="my-2 grid grid-cols-4 gap-3 place-content-center justify-items-center">
-            <Image src="/SABB_Bank_Logo.png" alt="SABB_Bank_Logo" width={150} height={150} />
-            <Image src="/saudi-hollandi-bank.png" alt="saudi-hollandi-bank" width={150} height={150} />
             <div className="flex items-center justify-center">
-
-            <Image src="/The_Saudi_Investment_Bank_Logo.png" alt="The_Saudi_Investment_Bank_Logo" width={150} height={150} />
+              <Image
+                src="/SABB_Bank_Logo.png"
+                alt="SABB_Bank_Logo"
+                width={150}
+                height={150}
+              />
             </div>
-            <Image src="/fransi-saudi-bank.webp" alt="fransi-saudi-bank" width={250} height={250} />
-            <Image src="/emirates_NBD-bank.jpg" alt="emirates_NBD-bank" width={150} height={150} />
-            <Image src="/alriad-bank.png" alt="alriad-bank" width={150} height={150} />
-            <Image src="/aljazira-bank.png" alt="aljazira-bank" width={150} height={150} />
-            <Image src="/alinma-bank.png" alt="alinma-bank" width={150} height={150} />
-            <Image src="/albilad-bank.png" alt="albilad-bank" width={150} height={150} />
-            <Image src="/alawal-bank.png" alt="alawal-bank" width={150} height={150} />
-            <Image src="/al-rajhi-bank.jpg" alt="al-rajhi-bank" width={150} height={150} />
-            <Image src="/al-ahly-bank.webp" alt="al-ahly-bank" width={150} height={100} />
+            <div className="flex items-center justify-center">
+              <Image
+                src="/saudi-hollandi-bank.png"
+                alt="saudi-hollandi-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/The_Saudi_Investment_Bank_Logo.png"
+                alt="The_Saudi_Investment_Bank_Logo"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/fransi-saudi-bank.webp"
+                alt="fransi-saudi-bank"
+                width={250}
+                height={250}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/emirates_NBD-bank.jpg"
+                alt="emirates_NBD-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/alriad-bank.png"
+                alt="alriad-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/aljazira-bank.png"
+                alt="aljazira-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/alinma-bank.png"
+                alt="alinma-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/albilad-bank.png"
+                alt="albilad-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/alawal-bank.png"
+                alt="alawal-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/al-rajhi-bank.jpg"
+                alt="al-rajhi-bank"
+                width={150}
+                height={150}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/al-ahly-bank.webp"
+                alt="al-ahly-bank"
+                width={150}
+                height={100}
+              />
+            </div>
           </div>
         </div>
       </section>
