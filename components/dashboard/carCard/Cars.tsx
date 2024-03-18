@@ -106,55 +106,54 @@ const Cars = () => {
     );
   }
   return (
-    <section
-      dir="rtl"
-      className="mx-4 grid-1 md:grid-cols-2  lg:grid-cols-3 gap-3"
-    >
-      <div className="flex mb-5 items-center">
-        <div className="flex w-full gap-2 max-w-sm items-center">
-          <Input
-            name="query"
-            className="rounded-lg placeholder:font-sans"
-            placeholder="بحث..."
-            type="search"
-            value={query}
-            onChange={(e) => updateQuery(e.target.value)}
-          />
-          <Button
-            onClick={() => updateQuery(query)}
-            className="rounded-lg"
-            type="submit"
-          >
-            <IoCarSport />
-          </Button>
-        </div>
+    <section dir="rtl">
+    <div className="flex mb-5 items-center">
+      <div className="flex w-full gap-2 max-w-sm items-center">
+        <Input
+          name="query"
+          className="rounded-lg placeholder:font-sans"
+          placeholder="بحث..."
+          type="search"
+          value={query}
+          onChange={(e) => updateQuery(e.target.value)}
+        />
+        <Button
+          onClick={() => updateQuery(query)}
+          className="rounded-lg"
+          type="submit"
+        >
+          <IoCarSport />
+        </Button>
       </div>
-      {showCar.map((car) => (
-        <CarCardWrapper key={car.id}>
-          <div className="relative">
-            <div className="w-full h-[300px]">
-              <button
-                className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                onClick={() => changeImage(-1)}
-              >
-                <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-              </button>
-              <button
-                className="absolute w-14 h-14 top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                onClick={() => changeImage(1)}
-              >
-                <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-              </button>
-              <Image
-                src={car.images[currentImageIndex]}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-t-lg"
-                priority
-                alt="car img"
-              />
-            </div>
+    </div>
+    <section dir="rtl" className="mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+    {showCar.map((car) => (
+      <CarCardWrapper key={car.id}>
+        <div className="relative">
+          <div className="w-full h-[300px]">
+            <button
+              className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
+              onClick={() => changeImage(-1)}
+            >
+              <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
+            </button>
+            <button
+              className="absolute w-14 h-14 top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
+              onClick={() => changeImage(1)}
+            >
+              <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
+            </button>
+            <Image
+              src={car.images[currentImageIndex]}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-t-lg"
+              priority
+              alt="car img"
+            />
           </div>
+        </div>
           <div dir="rtl" className=" flex mt-5 items-center justify-center">
             <Dialog>
               <DialogTrigger asChild>
@@ -390,6 +389,7 @@ const Cars = () => {
           </div>
         </CarCardWrapper>
       ))}
+      </section>
     </section>
   );
 };

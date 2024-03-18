@@ -76,10 +76,8 @@ const Cars = () => {
     );
   }
   return (
-    <section
-      dir="rtl"
-      className="grid-1 my-5 md:grid-cols-2  lg:grid-cols-3 gap-3"
-    >
+    <section dir="rtl" className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
       {cars?.map((car) => (
         <CarCardWrapper key={car.id}>
           <div className="relative ">
