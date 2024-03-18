@@ -3,9 +3,7 @@ import { getAllCars } from "@/data-access/cars";
 import Image from "next/image";
 import styles from "../about_us/AboutUs.module.css"
 import Cars from "@/components/dashboard/carCard/Cars";
-import { Cars as CarsData } from "@prisma/client";
 const page = async () => {
-  const cars: any = await getAllCars();
 
   return (
     <main className="">
@@ -32,7 +30,7 @@ const page = async () => {
         <hr />
       </section>
       <section  className="  py-10 lg:px-32  px-10">
-        <Cars cars={cars}/>
+        <Cars />
       </section>
     </main>
   );

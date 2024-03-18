@@ -11,7 +11,6 @@ import { getAllCars } from "@/data-access/cars";
 
 
 export default async function Home() {
-  const cars: any = await getAllCars();
 
   return (
     <main>
@@ -94,7 +93,7 @@ export default async function Home() {
             </Button>
           </article>
           <hr />
-          <Cars cars={cars} />
+          <Cars  />
         </div>
       </section>
       <section dir="rtl" className=" py-10 lg:px-44  px-10">

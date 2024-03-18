@@ -19,32 +19,30 @@ interface CarsData {
   addToMainPage: string;
   stock: string;
 }
-interface CarsProps {
-  cars: CarsData[]; // Assuming CarsData is defined elsewhere
-}
+
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Cars: React.FC<CarsProps> = ({ cars }) => {
-  // const [cars, setCars] = useState<CarsData[]>([]);
+const Cars = () => {
+  const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  // const [loading, setLoading] = useState(true);
-  console.log(cars)
+  const [loading, setLoading] = useState(true);
+  console.log(cars);
 
-  // useEffect(() => {
-  //   async function getCarsData() {
-  //     try {
-  //       const res = await fetch("/api/main-page-car");
-  //       const data = await res.json();
-  //       setCars(data);
-  //       setLoading(false); // Set loading to false when data is fetched
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //       setLoading(false); // Make sure to set loading to false even if there's an error
-  //     }
-  //   }
+  useEffect(() => {
+    async function getCarsData() {
+      try {
+        const res = await fetch("/api/main-page-car");
+        const data = await res.json();
+        setCars(data);
+        setLoading(false); // Set loading to false when data is fetched
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Make sure to set loading to false even if there's an error
+      }
+    }
 
-  //   getCarsData();
-  // }, []);
+    getCarsData();
+  }, []);
 
   const changeImage = (delta: number) => {
     setCurrentImageIndex(
@@ -71,16 +69,18 @@ const Cars: React.FC<CarsProps> = ({ cars }) => {
     </div>
   ));
 
-  // if (loading) {
-  //   return (
-  //     <section className="mx-4 grid  md:grid-cols-2  lg:grid-cols-3 gap-3">
-  //       {skeletons}
-  //     </section>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <section className="mx-4 grid  md:grid-cols-2  lg:grid-cols-3 gap-3">
+        {skeletons}
+      </section>
+    );
+  }
   return (
-    <section dir="rtl" className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-
+    <section
+      dir="rtl"
+      className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3"
+    >
       {cars?.map((car) => (
         <CarCardWrapper key={car.id}>
           <div className="relative ">

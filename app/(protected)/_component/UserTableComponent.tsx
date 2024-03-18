@@ -19,8 +19,8 @@ import { useSession } from "next-auth/react";
 import { Input } from "@/components/ui/input";
 import { IoSearchOutline } from "react-icons/io5";
 
-export const UserTableComponent = (allUserData:any) => {
-  // const [allUserData, setAllUserData] = useState<any[]>([]);
+export const UserTableComponent = () => {
+  const [allUserData, setAllUserData] = useState<any[]>([]);
   const [query, setQuery] = useState<string>("");
   const updateQuery = (query: string) => {
     setQuery(query.trim());
@@ -30,20 +30,20 @@ export const UserTableComponent = (allUserData:any) => {
     query === ""
       ? allUserData
       : allUserData.filter(
-          (user:any) =>
+          (user) =>
             user.name.toLowerCase().includes(query.toLowerCase()) ||
             user.email.toLowerCase().includes(query.toLowerCase())
         );
   const { data: session } = useSession();
 
-  // useEffect(() => {
-  //   async function getUserData() {
-  //     const res = await fetch("/api/user-data");
-  //     const data = await res.json();
-  //     setAllUserData(data);
-  //   }
-  //   getUserData();
-  // }, []);
+  useEffect(() => {
+    async function getUserData() {
+      const res = await fetch("/api/user-data");
+      const data = await res.json();
+      setAllUserData(data);
+    }
+    getUserData();
+  }, []);
 
   if (session?.user?.role === "ADMIN" || session?.user?.role === "MEMBER") {
     return (
@@ -82,7 +82,7 @@ export const UserTableComponent = (allUserData:any) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filterUser.map((user:any) =>
+            {filterUser.map((user) =>
               user.role !== "ADMIN" ? (
                 <TableRow key={user.id}>
                   <TableCell>{user.name}</TableCell>
@@ -99,7 +99,7 @@ export const UserTableComponent = (allUserData:any) => {
                                 await deleteUser(user.id);
                                 const res = await fetch("/api/user-data");
                                 const data = await res.json();
-                                // setAllUserData(data);
+                                setAllUserData(data);
                               }}
                             >
                               <Button
@@ -122,7 +122,7 @@ export const UserTableComponent = (allUserData:any) => {
                                 );
                                 const res = await fetch("/api/user-data");
                                 const data = await res.json();
-                                // setAllUserData(data);
+                                setAllUserData(data);
                               }}
                             >
                               <Button size="sm" type="submit">
@@ -145,7 +145,7 @@ export const UserTableComponent = (allUserData:any) => {
                                 await deleteUser(user.id);
                                 const res = await fetch("/api/user-data");
                                 const data = await res.json();
-                                // setAllUserData(data);
+                                setAllUserData(data);
                               }}
                             >
                               <Button
@@ -168,7 +168,7 @@ export const UserTableComponent = (allUserData:any) => {
                                 );
                                 const res = await fetch("/api/user-data");
                                 const data = await res.json();
-                                // setAllUserData(data);
+                                setAllUserData(data);
                               }}
                             >
                               <Button
