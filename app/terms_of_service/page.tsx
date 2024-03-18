@@ -1,19 +1,40 @@
 import Image from "next/image";
 import TextStyle from "@/components/TextStyle";
 import Nav from "@/components/Nav";
+import styles from "../about_us/AboutUs.module.css";
 const TermsAndCondition = () => {
   return (
     <main>
       <Nav />
 
-      <section dir="rtl" className="bg-gray-300/20">
-        {/* <header className="flex items-center  justify-center  p-0 h-[34rem] ">
-      </header> */}
+      <section dir="rtl" className="">
+        <header className="w-full ">
+          <div className=" relative  lg:h-[600px] h-[400px] ">
+            <div className={styles.imageContainer + "relative"}>
+              {/* Apply blue fade overlay using CSS */}
+              <div className={styles.blueOverlay}></div>
+              <Image
+                src="/terms-img.jpg"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+                alt="car image"
+              />
+            </div>
+          </div>
+        </header>
+        <section
+          dir="rtl"
+          className="bg-regal-blue mb-24 text-white py-20 lg:px-32  px-10"
+        >
+          <h1 className=" my-4 font-sans font-bold w-full lg:text-[30px] text-[38px]">
+            الشروط و الاحكام
+          </h1>
+          <hr />
+        </section>
 
-        <h1 className="text-4xl bg-gray-300/20 text-center pt-20 pb-5   font-sans font-black ">
-          الشروط و الاحكام
-        </h1>
-        <section className=" bg-gray-300/20 m-0  sm:px-40 py-10">
+        <h1 className="text-4xl  text-center pt-20 pb-5   font-sans font-black "></h1>
+        <section className="lg:px-32  px-10">
           <TextStyle
             header="اخلاء المسؤولية التنازل عن المطالبات"
             para="إن البوابة الإلكترونية شركة سمسار العربية للسيارات والخدمات المقدمة

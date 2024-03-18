@@ -1,25 +1,48 @@
 import TextStyle from "@/components/TextStyle";
 import Nav from "@/components/Nav";
+import Image from "next/image";
+import styles from "../about_us/AboutUs.module.css";
 const PrivacyAndPolicy = () => {
   return (
     <main>
       <Nav />
-      <section dir="rtl" className="bg-gray-300/20">
-        {/* <header className="flex items-center bg-black  justify-center  p-0 h-[34rem] ">
-      </header> */}
-        <h1 className="text-4xl bg-gray-300/20 text-center pt-20 pb-5   font-sans font-black ">
-          الخصوصية
-        </h1>
-        <section className=" bg-gray-300/20 m-0  sm:px-40 py-10">
-          <article data-aos="zoom-in" className="font-sans text-blue-800/80">
-            <h1 className="text-2xl direction-reverse  font-sans font-bold">
-              نقدر مخاوفكم واهتمامكم بشأن خصوصية بياناتكم على شبكة الإنترنت. لقد
-              تم إعداد هذه السياسة لمساعدتكم في تفهم طبيعة البيانات التي نقوم
-              بتجميعها منكم عند زيارتكم لموقعنا على شبكة الانترنت وكيفية تعاملنا
-              مع هذه البيانات الشخصية.
+      <section dir="rtl" className="">
+        <header className="w-full ">
+          <div className=" relative  lg:h-[600px] h-[400px] ">
+            <div className={styles.imageContainer + "relative"}>
+              {/* Apply blue fade overlay using CSS */}
+              <div className={styles.blueOverlay}></div>
+              <Image
+                src="/privacy-img.png"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+                alt="car image"
+              />
+            </div>
+          </div>
+        </header>
+        <section
+          dir="rtl"
+          className="bg-regal-blue mb-24 text-white py-20 lg:px-32  px-10"
+        >
+          <h1 className=" my-4 font-sans font-bold w-full lg:text-[30px] text-[38px]">
+            الخصوصية
+          </h1>
+          <hr />
+          <article data-aos="zoom-in" className="font-sans text-white my-4">
+            <h1 className="text-[20px] my-2  text-white  font-sans font-bold">
+              نقدر مخاوفكم واهتمامكم بشأن خصوصية بياناتكم على شبكة الإنترنت.
             </h1>
-            <hr className=" my-2 border-black/30 " />
+            <h1 className="text-[20px]   text-white  font-sans font-bold">
+              لقد تم إعداد هذه السياسة لمساعدتكم في تفهم طبيعة البيانات التي
+              نقوم بتجميعها منكم عند زيارتكم لموقعنا على شبكة الانترنت وكيفية
+              تعاملنا مع هذه البيانات الشخصية.
+            </h1>
           </article>
+        </section>
+
+        <section className="  m-0  py-5 lg:px-32  px-10">
           <TextStyle
             header="التصفح :"
             para="لم نقم بتصميم هذا الموقع من أجل تجميع بياناتك الشخصية من جهاز

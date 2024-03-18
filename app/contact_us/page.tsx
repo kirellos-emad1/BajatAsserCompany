@@ -5,23 +5,44 @@ import Link from "next/link";
 import { TfiEmail } from "react-icons/tfi";
 import { CalendarIcon, ClockIcon } from "@radix-ui/react-icons";
 import Nav from "@/components/Nav";
+import styles from '../about_us/AboutUs.module.css'
+import Image from "next/image";
 
 const page = () => {
   return (
     <main>
-      <Nav/>
+      <Nav />
       <section
         dir="rtl"
-        className="flex flex-col  justify-center  w-full h-full gap-10 bg-gray-300/20 "
+        className="flex flex-col  justify-center  w-full h-full   "
       >
-        {/* <header></header> */}
-        <section className="w-full flex items-center justify-center">
-          <section className="w-5/6  py-20   font-sans font-black">
-            <h1 className=" font-bold font-serif text-3xl m-2 lg:text-5xl md:text-4xl  text-black">
-              المملكة العربية السعودية ، الرياض
+        <header className="w-full ">
+          <div className=" relative  lg:h-[600px] h-[400px] ">
+            <div className={styles.imageContainer + "relative"}>
+              {/* Apply blue fade overlay using CSS */}
+              <div className={styles.blueOverlay}></div>
+              <Image
+                src="/contact-us.jpg"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+                alt="car image"
+              />
+            </div>
+          </div>
+        </header>
+        <section className="bg-regal-blue mb-24  text-white py-20 lg:px-32  px-10">
+          <h1 className="  font-sans font-bold my-5 w-full lg:text-[40px] text-[38px]">
+            اتصل بنا
+          </h1>
+          <hr />
+            <h1
+              dir="rtl"
+              className=" font-bold font-serif  my-2 text-[38px]  "
+            >
+              المملكة العربية السعودية
             </h1>
-            <p className=" m-2 text-2xl text-blue-800/95">حي القادسيه</p>
-          </section>
+            <p className=" m-2 text-3xl my-1 text-gray-200 ">الرياض حي القادسيه</p>
         </section>
         <section className=" w-full flex flex-col items-center justify-center  ">
           <section className="grid grid-1 w-5/6 lg:grid-cols-4 lg:grid gap-4 md:grid-cols-2 justify-items-center ">

@@ -53,7 +53,7 @@ const HeaderSection = () => {
         >
           {currentIndex === 0 && (
             <div data-aos="fade-up" data-aos-duration="1000">
-              <h1 className="text-white w-full text-[44px]">
+              <h1 className="text-white  w-full text-[44px]">
                 ٤٠ عامًا من الخبرة في عالم السيارات
               </h1>
               <h1 className="text-white my-4  font-medium text-4xl ">

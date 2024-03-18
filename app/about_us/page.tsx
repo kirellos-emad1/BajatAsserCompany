@@ -25,21 +25,21 @@ const page = () => {
         </div>
       </header>
       <section dir="rtl" className=" bg-regal-blue py-10 lg:px-44  px-10">
-        <div className="  p-10 w-full">
-          <h1 className=" text-white mb-5 font-sans w-full lg:text-[44px] text-[38px]">
+        <div className="  lg:p-10 p-0 w-full">
+          <h1 className=" text-white mb-5 font-sans font-bold w-full lg:text-[44px] text-[38px]">
             عن الشركة
           </h1>
           <hr />
         </div>
-        <article className="p-10 w-full">
-          <p className=" text-white font-sans font-bold  text-[20px]">
+        <article className="lg:p-10 p-0 w-full">
+          <p className=" text-white font-sans mt-5 font-medium   text-[20px]">
             يعتبر موقعنا من المواقع المختصة في مجال السيارات ،حيث تضع شركائها
             محور أولوياتها وتقدم لهم أحدث عروض السيارات ، وتركز بدقة على تقديم
             افضل الخدمات المتطورة والحلول التمويلية الإسلامية.
           </p>
         </article>
         <section className="grid lg:grid-cols-2   md:grid-cols-1 gap-y-3 justify-items-center place-content-center">
-          <div className=" flex flex-col items-center justify-center mt-7  text-white bg-regal-blue/50  lg:w-[500px] md:w[500px] w-full p-0 h-[300px]">
+          <div className=" flex flex-col items-center justify-center mt-7  text-white bg-regal-blue/50  lg:w-[500px] md:w[500px] w-full p-0 ">
             <div className="flex items-center p-2">
               <BsEye className=" size-10" />
             </div>
@@ -52,7 +52,7 @@ const page = () => {
               </p>
             </div>
           </div>
-          <div className=" flex flex-col items-center justify-center mt-7  text-white bg-regal-blue/50  lg:w-[500px] md:w[500px] w-full p-0 h-[340px]">
+          <div className=" flex flex-col items-center justify-center mt-7  text-white bg-regal-blue/50  lg:w-[500px] md:w[500px] w-full p-0">
             <div className="flex items-center p-2">
               <GiStairsGoal className=" size-10" />
             </div>
