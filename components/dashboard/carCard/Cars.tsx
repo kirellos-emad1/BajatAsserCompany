@@ -14,6 +14,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useSession } from "next-auth/react";
 import { deleteCar } from "@/actions/deleteCar";
 import { addCarToMainPage } from "@/actions/addCarToMainPage";
@@ -35,13 +36,27 @@ interface CarsData {
   stock: string;
 }
 import { Skeleton } from "@/components/ui/skeleton";
+import { IoCarSport } from "react-icons/io5";
 
 const Cars = () => {
   const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const { data: session } = useSession();
   const [loading, setLoading] = useState(true);
-
+  const [query, setQuery] = useState<string>("");
+  const updateQuery = (query: string) => {
+    setQuery(query.trim());
+  };
+  console.log(query);
+  const showCar =
+    query === ""
+      ? cars
+      : cars.filter(
+          (car) =>
+            car.brand.toLowerCase().includes(query.toLowerCase()) ||
+            car.model.toLowerCase().includes(query.toLowerCase()) ||
+            car.vehicleClass.toLowerCase().includes(query.toLowerCase())
+        );
   useEffect(() => {
     async function getCarsData() {
       try {
@@ -91,11 +106,33 @@ const Cars = () => {
     );
   }
   return (
-    <section className="mx-4 grid-1 md:grid-cols-2  lg:grid-cols-3 gap-3">
-      {cars?.map((car) => (
+    <section
+      dir="rtl"
+      className="mx-4 grid-1 md:grid-cols-2  lg:grid-cols-3 gap-3"
+    >
+      <div className="flex mb-5 items-center">
+        <div className="flex w-full gap-2 max-w-sm items-center">
+          <Input
+            name="query"
+            className="rounded-lg placeholder:font-sans"
+            placeholder="بحث..."
+            type="search"
+            value={query}
+            onChange={(e) => updateQuery(e.target.value)}
+          />
+          <Button
+            onClick={() => updateQuery(query)}
+            className="rounded-lg"
+            type="submit"
+          >
+            <IoCarSport />
+          </Button>
+        </div>
+      </div>
+      {showCar.map((car) => (
         <CarCardWrapper key={car.id}>
-          <div className="relative ">
-            <div className="w-full h-[300px] ">
+          <div className="relative">
+            <div className="w-full h-[300px]">
               <button
                 className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
                 onClick={() => changeImage(-1)}
@@ -103,7 +140,7 @@ const Cars = () => {
                 <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
               </button>
               <button
-                className="absolute w-14 h-14  top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
+                className="absolute w-14 h-14 top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
                 onClick={() => changeImage(1)}
               >
                 <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
@@ -112,7 +149,7 @@ const Cars = () => {
                 src={car.images[currentImageIndex]}
                 layout="fill"
                 objectFit="cover"
-                className="rounded-t-lg "
+                className="rounded-t-lg"
                 priority
                 alt="car img"
               />
@@ -331,24 +368,23 @@ const Cars = () => {
               </DialogContent>
             </Dialog>
           </div>
-
           <div className="py-4 px-4 space-y-2">
-            <div dir="rtl" className="flex items-center ">
-              <span className="font-bold">ماركة السيارة : </span>
+            <div dir="rtl" className="flex items-center">
+              <span className="font-bold">ماركة السيارة: </span>
               <p className="text-right font-sans">{car.brand}</p>
             </div>
             <div dir="rtl" className="flex">
-              <span className="font-bold">موديل السيارة : </span>
+              <span className="font-bold">موديل السيارة: </span>
               <p className="text-right font-sans">{car.model}</p>
             </div>
             <div dir="rtl" className="flex">
-              <span className="font-bold">فئة السيارة : </span>
+              <span className="font-bold">فئة السيارة: </span>
               <p className="text-right font-sans">{car.vehicleClass}</p>
             </div>
             <div dir="rtl" className="flex">
-              <span className="font-bold">سعة المحرك : </span>
+              <span className="font-bold">سعة المحرك: </span>
               <p dir="ltr" className="text-right font-sans">
-                {car.engineCapacity} CC{" "}
+                {car.engineCapacity} CC
               </p>
             </div>
           </div>

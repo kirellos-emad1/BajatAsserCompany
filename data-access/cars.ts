@@ -18,3 +18,13 @@ export const getAllCars = async () => {
         return null
     }
 }
+export const getAllCarsInMainPage = async () => {
+    try {
+        const cars = await db.cars.findMany({
+            where:{addToMainPage:true}
+        })
+        return cars
+    } catch {
+        return null
+    }
+}

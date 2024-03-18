@@ -519,8 +519,8 @@ export const FundForm = () => {
                                 <SelectItem value="البنك العربي الوطني">
                                   البنك العربي الوطني
                                 </SelectItem>
-                                <SelectItem value="البتك السعودي الفرنسي">
-                                  البتك السعودي الفرنسي
+                                <SelectItem value="البنك السعودي الفرنسي">
+                                  البنك السعودي الفرنسي
                                 </SelectItem>
                                 <SelectItem value="بنك الامارات">
                                   بنك الامارات
@@ -531,8 +531,8 @@ export const FundForm = () => {
                                 <SelectItem value="بنك الرياض">
                                   بنك الرياض
                                 </SelectItem>
-                                <SelectItem value="يتك الاستثمار">
-                                  يتك الاستثمار
+                                <SelectItem value="بنك الاستثمار">
+                                  بنك الاستثمار
                                 </SelectItem>
                                 <SelectItem value="بنك الجزيرة">
                                   بنك الجزيرة

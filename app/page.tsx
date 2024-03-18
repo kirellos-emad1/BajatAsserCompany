@@ -1,46 +1,133 @@
 import Nav from "@/components/Nav";
-import Image from "next/image";
-import styles from "./Home.module.css";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import HeaderSection from "@/components/home/HeaderSection";
+import { IoPerson, IoCarSport } from "react-icons/io5";
+import { BsBuildingFill } from "react-icons/bs";
 import Link from "next/link";
-import { AnimationButton } from "@/components/AnimationButton";
-import { AnimationInformative } from "@/components/AnimationInformative";
+import Cars from "@/components/home/Cars";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   return (
     <main>
       <Nav />
-      <section className="w-full ">
-        <div className=" relative">
-          <div
-            dir="rtl"
-            className="absolute z-20 font-serif font-bold lg:text-4xl md:text-3xl text-lg  text-center transform -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2"
-          >
-            <h1 className="text-white text-[15px] lg:text-4xl md:text-3xl">
-              ٥٠ عامًا من الخبرة في عالم السيارات
+      <HeaderSection />
+      <section dir="rtl" className="w-full py-5 px-44  bg-regal-blue ">
+        <div className=" grid lg:grid-cols-3 my-10  md:grid-cols-2 gap-y-3 justify-items-center place-content-center">
+          <Link href="/funding_request">
+            <Card className=" flex flex-col items-center justify-center bg-sky-400  text-white border-sky-400 shadow-2xl w-[350px] p-0 h-[300px]">
+              <CardHeader className="flex items-center p-2">
+                <IoPerson className=" size-10" />
+              </CardHeader>
+              <CardContent className="text-center font-sans space-y-4 ">
+                <CardTitle className=" text-[28px] ">تمويل الافراد</CardTitle>
+                <p className=" text-[22px]">
+                  امتلك سيارة احلامك من خلالنا في اقل من 48 ساعة واستمتع
+                  بقيادتها
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/funding_request">
+            <Card className=" flex flex-col items-center justify-center bg-sky-400  text-white border-sky-400 shadow-2xl w-[350px] p-0 h-[300px]">
+              <CardHeader className="flex items-center p-2">
+                <BsBuildingFill className="  size-10" />
+              </CardHeader>
+              <CardContent className="text-center font-sans space-y-4 ">
+                <CardTitle className=" text-[28px] ">
+                  تمويل الشركات و المؤسسات
+                </CardTitle>
+                <p className=" text-[18px]">
+                  السيارات بمعظم انوعها سيارات سيدان و دفع رباعي و تجارية
+                  والحفلات
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/cars">
+            <Card className=" flex flex-col items-center justify-center bg-sky-400  text-white border-sky-400 shadow-2xl w-[350px] p-0 h-[300px]">
+              <CardHeader className="flex items-center p-2">
+                <IoCarSport className=" size-10" />
+              </CardHeader>
+              <CardContent className="text-center font-sans space-y-4 ">
+                <CardTitle className=" text-[28px] ">اطلب سيارتك</CardTitle>
+                <p className=" text-[18px]">
+                  امتلك سيارتك من خلالنا بافضل الاسعار و اسهل الطرق
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+        <article>
+          <h1 className="text-[28px] text-white font-sans font-semibold  ">
+            عن شركتنا
+          </h1>
+          <p className=" text-white font-sans  text-[20px]">
+            يعتبر موقعنا من المواقع المختصة في مجال السيارات ،حيث تضع شركائها
+            محور أولوياتها وتقدم لهم أحدث عروض السيارات ، وتركز بدقة على تقديم
+            افضل الخدمات المتطورة والحلول التمويلية الإسلامية
+          </p>
+          <Button className="text-base    font-bold  font-sans rounded-3xl p-7 my-5">
+            <Link href="/about_us">اكشف اكثر عنا</Link>
+          </Button>
+        </article>
+      </section>
+      <section dir="rtl" className=" py-10 px-44">
+        <div className="">
+          <article className="w-full flex items-center justify-between">
+            <h1 className="text-[28px] py-5  text-black font-sans font-semibold  ">
+              السيارات
             </h1>
-            <h1 className="text-white text-base lg:text-4xl md:text-3xl">
-              شركاء في رحلتك
-            </h1>
-            <AnimationButton>
-              <Link href="/cars">اكتشف سيارة الأحلام</Link>
-            </AnimationButton>
-          </div>
-          <div className={styles.imageContainer}>
-            {/* Apply blue fade overlay using CSS */}
-            <div className={styles.blueOverlay}></div>
-            <Image
-              src="/car.jpg"
-              layout="responsive"
-              width={100}
-              height={100}
-              priority
-              alt="car image"
-            />
-          </div>
+
+            <Button variant="link">
+              <Link
+                href="/cars"
+                className=" text-lg text-blue-800 hover:text-black"
+              >
+                المزيد من السيارات
+              </Link>
+            </Button>
+          </article>
+          <hr />
+          <Cars />
         </div>
       </section>
-      <section >
+      <section dir="rtl" className=" py-10 px-44">
+        <div className="">
+          <article className="w-full flex items-center justify-between">
+            <h1 className="text-[28px] py-5  text-black font-sans font-semibold  ">
+              الشركاء
+            </h1>
+
+            <Button variant="link">
+              <Link
+                href="/about_us"
+                className=" text-lg text-blue-800 hover:text-black"
+              >
+                المزيد
+              </Link>
+            </Button>
+          </article>
+          <hr />
+          <div className="my-2 grid grid-cols-4 gap-3 place-content-center justify-items-center">
+            <Image src="/SABB_Bank_Logo.png" alt="SABB_Bank_Logo" width={150} height={150} />
+            <Image src="/saudi-hollandi-bank.png" alt="saudi-hollandi-bank" width={150} height={150} />
+            <div className="flex items-center justify-center">
+
+            <Image src="/The_Saudi_Investment_Bank_Logo.png" alt="The_Saudi_Investment_Bank_Logo" width={150} height={150} />
+            </div>
+            <Image src="/fransi-saudi-bank.webp" alt="fransi-saudi-bank" width={250} height={250} />
+            <Image src="/emirates_NBD-bank.jpg" alt="emirates_NBD-bank" width={150} height={150} />
+            <Image src="/alriad-bank.png" alt="alriad-bank" width={150} height={150} />
+            <Image src="/aljazira-bank.png" alt="aljazira-bank" width={150} height={150} />
+            <Image src="/alinma-bank.png" alt="alinma-bank" width={150} height={150} />
+            <Image src="/albilad-bank.png" alt="albilad-bank" width={150} height={150} />
+            <Image src="/alawal-bank.png" alt="alawal-bank" width={150} height={150} />
+            <Image src="/al-rajhi-bank.jpg" alt="al-rajhi-bank" width={150} height={150} />
+            <Image src="/al-ahly-bank.webp" alt="al-ahly-bank" width={150} height={100} />
+          </div>
+        </div>
       </section>
     </main>
   );
