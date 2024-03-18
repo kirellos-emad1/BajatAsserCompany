@@ -19,27 +19,15 @@ import { useSession } from "next-auth/react";
 import { deleteCar } from "@/actions/deleteCar";
 import { addCarToMainPage } from "@/actions/addCarToMainPage";
 import { carAvailability } from "@/actions/carAvailability";
-interface CarsData {
-  id: string;
-  images: [string];
-  brand: string;
-  model: string;
-  vehicleClass: string;
-  yearOfManufacture: string;
-  fuelType: string;
-  transmission: string;
-  horsePower: string;
-  price: string;
-  engineCapacity: string;
-  AutomotivePropulsionSystems: string;
-  addToMainPage: string;
-  stock: string;
-}
 import { Skeleton } from "@/components/ui/skeleton";
 import { IoCarSport } from "react-icons/io5";
+import { Cars as CarsData } from "@prisma/client";
+interface CarsProps {
+  cars: CarsData[]; // Assuming CarsData is defined elsewhere
+}
 
-const Cars = () => {
-  const [cars, setCars] = useState<CarsData[]>([]);
+const Cars: React.FC<any> = ({ cars }) => {
+  // const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const { data: session } = useSession();
   const [loading, setLoading] = useState(true);
@@ -52,26 +40,26 @@ const Cars = () => {
     query === ""
       ? cars
       : cars.filter(
-          (car) =>
+          (car:any) =>
             car.brand.toLowerCase().includes(query.toLowerCase()) ||
             car.model.toLowerCase().includes(query.toLowerCase()) ||
             car.vehicleClass.toLowerCase().includes(query.toLowerCase())
         );
-  useEffect(() => {
-    async function getCarsData() {
-      try {
-        const res = await fetch("/api/cars");
-        const data = await res.json();
-        setCars(data);
-        setLoading(false); // Set loading to false when data is fetched
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Make sure to set loading to false even if there's an error
-      }
-    }
+  // useEffect(() => {
+  //   async function getCarsData() {
+  //     try {
+  //       const res = await fetch("/api/cars");
+  //       const data = await res.json();
+  //       setCars(data);
+  //       setLoading(false); // Set loading to false when data is fetched
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       setLoading(false); // Make sure to set loading to false even if there's an error
+  //     }
+  //   }
 
-    getCarsData();
-  }, []);
+  //   getCarsData();
+  // }, []);
 
   const changeImage = (delta: number) => {
     setCurrentImageIndex(
@@ -128,7 +116,7 @@ const Cars = () => {
     </div>
     <section dir="rtl" className="mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
 
-    {showCar.map((car) => (
+    {showCar.map((car:any) => (
       <CarCardWrapper key={car.id}>
         <div className="relative">
           <div className="w-full h-[300px]">
@@ -271,7 +259,7 @@ const Cars = () => {
                             await deleteCar(car.id);
                             const res = await fetch("/api/cars");
                             const data = await res.json();
-                            setCars(data);
+                            // setCars(data);
                           }}
                         >
                           <DialogClose>
@@ -292,7 +280,7 @@ const Cars = () => {
                               await addCarToMainPage(car.id, true);
                               const res = await fetch("/api/cars");
                               const data = await res.json();
-                              setCars(data);
+                              // setCars(data);
                             }}
                           >
                             <DialogClose>
@@ -308,7 +296,7 @@ const Cars = () => {
                               await addCarToMainPage(car.id, false);
                               const res = await fetch("/api/cars");
                               const data = await res.json();
-                              setCars(data);
+                              // setCars(data);
                             }}
                           >
                             <DialogClose>
@@ -330,7 +318,7 @@ const Cars = () => {
                               await carAvailability(car.id, true);
                               const res = await fetch("/api/cars");
                               const data = await res.json();
-                              setCars(data);
+                              // setCars(data);
                             }}
                           >
                             <DialogClose>
@@ -346,7 +334,7 @@ const Cars = () => {
                               await carAvailability(car.id, false);
                               const res = await fetch("/api/cars");
                               const data = await res.json();
-                              setCars(data);
+                              // setCars(data);
                             }}
                           >
                             <DialogClose>

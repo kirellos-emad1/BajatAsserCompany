@@ -3,8 +3,9 @@ import { getAllCars } from "@/data-access/cars";
 import Image from "next/image";
 import styles from "../about_us/AboutUs.module.css"
 import Cars from "@/components/dashboard/carCard/Cars";
+import { Cars as CarsData } from "@prisma/client";
 const page = async () => {
-  const cars = await getAllCars();
+  const cars: any = await getAllCars();
 
   return (
     <main className="">

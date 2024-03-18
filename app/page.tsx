@@ -7,8 +7,12 @@ import Link from "next/link";
 import Cars from "@/components/home/Cars";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { getAllCars } from "@/data-access/cars";
+
 
 export default async function Home() {
+  const cars: any = await getAllCars();
+
   return (
     <main>
       <Nav />
@@ -90,7 +94,7 @@ export default async function Home() {
             </Button>
           </article>
           <hr />
-          <Cars />
+          <Cars cars={cars} />
         </div>
       </section>
       <section dir="rtl" className=" py-10 lg:px-44  px-10">
