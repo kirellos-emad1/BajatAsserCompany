@@ -1,8 +1,12 @@
 import { getAllCarsInMainPage } from "@/data-access/cars";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export async function GET() {
+
+export async function GET(
+    req: NextApiRequest,
+    res: NextApiResponse
+) {
     const allCars = await getAllCarsInMainPage();
-    
-    return NextResponse.json(allCars);
+
+    return Response.json(allCars)
 }
