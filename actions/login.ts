@@ -11,14 +11,14 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values);
 
   if (!validatedFields.success) {
-    return { error: "Invalid fields" };
+    return { error: "الحقول غير صالحة" };
   }
 
   const { email, password } = validatedFields.data;
 
   const existingUser = await getUserByEmail(email)
   if(!existingUser || !existingUser.email|| !existingUser.password){
-    return {error: "Email doesn't exist"}
+    return {error: "البريد الإلكتروني غير موجود"}
   }
 
 
@@ -28,13 +28,15 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
       password,
       redirectTo: "/",
     });
+
+    return { success: ' تم تسجيل الدخول بنجاح' }
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
         case "CredentialsSignin":
-          return { error: "Invalid credential" };
+          return { error: "ألبيانات غير صحيحة" };
         default:
-          return { error: "Something went wrong!" };
+          return { error: "هناك خطأ ما!" };
       }
     }
     throw error;

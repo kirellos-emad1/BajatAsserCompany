@@ -17,14 +17,23 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const hashedPassword = await bcryptjs.hash(password, 10);
 
   const existingUser = await getUserByEmail(email)
-  if (existingUser) return { error: "Email already in use" };
+  if (existingUser) return { error: "البريد الاليكتروني مستخدم" };
+  try {
 
-  await db.user.create({
-    data: {
-      name,
-      email,
-      password: hashedPassword,
-    },
-  });
+    await db.user.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword,
+      },
+    });
+    return { success: ' تم انشاء الحساب بنجاح' }
+
+
+  } catch (err) {
+    console.log(err)
+    return { error: "حدث خطاء" }
+
+  }
 
 };
