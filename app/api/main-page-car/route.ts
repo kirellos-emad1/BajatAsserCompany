@@ -1,11 +1,11 @@
 import { getAllCarsInMainPage } from "@/data-access/cars";
-import { NextResponse } from 'next/server'
 
-
-export async function GET(
-
-) {
+export async function GET() {
     const allCars = await getAllCarsInMainPage();
 
-    return Response.json(allCars)
+    return new Response(JSON.stringify(allCars), {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
 }

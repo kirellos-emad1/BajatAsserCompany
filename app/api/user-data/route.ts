@@ -1,8 +1,11 @@
 import { getAllUsers } from "@/data-access/user";
-import { NextResponse } from "next/server";
 
-export async function GET(request:Request) {
+export async function GET() {
     const allUserData = await getAllUsers();
 
-    return  NextResponse.json(allUserData);
+    return new Response(JSON.stringify(allUserData), {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
 }
