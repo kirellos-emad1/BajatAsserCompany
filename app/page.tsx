@@ -40,7 +40,7 @@ export default async function Home() {
                 </CardTitle>
                 <p className=" text-[18px]">
                   السيارات بمعظم انوعها سيارات سيدان و دفع رباعي و تجارية
-                  والحفلات
+                  والحافلات
                 </p>
               </CardContent>
             </Card>
