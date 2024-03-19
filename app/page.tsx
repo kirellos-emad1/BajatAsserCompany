@@ -7,15 +7,12 @@ import Link from "next/link";
 import Cars from "@/components/home/Cars";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { getAllUsers } from "@/data-access/user";
 
 export default async function Home() {
-  const usersData = await getAllUsers()
 
   return (
     <main>
       <Nav />
-      {JSON.stringify(usersData)}
       <HeaderSection />
       <section dir="rtl" className="w-full py-5 lg:px-44  px-10 bg-regal-blue ">
         <div className=" grid lg:grid-cols-3 my-10  md:grid-cols-2 gap-y-3 justify-items-center place-content-center">
@@ -94,7 +91,7 @@ export default async function Home() {
             </Button>
           </article>
           <hr />
-          <Cars  />
+          <Cars />
         </div>
       </section>
       <section dir="rtl" className=" py-10 lg:px-44  px-10">

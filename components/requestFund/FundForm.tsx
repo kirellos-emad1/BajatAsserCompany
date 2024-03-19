@@ -86,7 +86,6 @@ export const FundForm = () => {
   };
   const onSubmit = (values: z.infer<typeof FundSchema>) => {
     if (isCompanyFund === false) {
-      console.log(values);
       setError("");
       setSuccess("");
       if (!isAcceptTermsAndPolice) {

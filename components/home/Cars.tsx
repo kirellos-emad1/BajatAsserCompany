@@ -26,7 +26,6 @@ const Cars = () => {
   const [cars, setCars] = useState<CarsData[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [loading, setLoading] = useState(true);
-  console.log(cars);
 
   useEffect(() => {
     async function getCarsData() {

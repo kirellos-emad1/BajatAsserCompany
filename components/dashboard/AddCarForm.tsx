@@ -55,7 +55,6 @@ export const AddCarForm = () => {
 
   const onSubmit = async (values: z.infer<typeof AddCar>) => {
     const arr = await submitImage();
-    console.log(arr);
     setError("");
     setSuccess("");
     startTransition(() => {
