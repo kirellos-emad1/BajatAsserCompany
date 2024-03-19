@@ -40,11 +40,13 @@ export const UserTableComponent = () => {
     async function getUserData() {
       const res = await fetch("/api/user-data");
       const data = await res.json();
+      console.log(data)
       setAllUserData(data);
     }
     getUserData();
   }, []);
 
+  console.log(allUserData)
   if (session?.user?.role === "ADMIN" || session?.user?.role === "MEMBER") {
     return (
       <main dir="rtl" className="overflow-x-auto">
