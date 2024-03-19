@@ -38,15 +38,20 @@ export const UserTableComponent = () => {
 
   useEffect(() => {
     async function getUserData() {
-      const res = await fetch("/api/user-data");
+      const res = await fetch("/api/user-data", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       setAllUserData(data);
     }
     getUserData();
   }, []);
 
-  console.log(allUserData)
+  console.log(allUserData);
   if (session?.user?.role === "ADMIN" || session?.user?.role === "MEMBER") {
     return (
       <main dir="rtl" className="overflow-x-auto">
@@ -96,7 +101,7 @@ export const UserTableComponent = () => {
                         <>
                           <TableCell>
                             <form
-                            method="POST"
+                              method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await deleteUser(user.id);
@@ -117,7 +122,7 @@ export const UserTableComponent = () => {
                           </TableCell>
                           <TableCell>
                             <form
-                            method="POST"
+                              method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await updateUserRoleToMember(
@@ -164,7 +169,7 @@ export const UserTableComponent = () => {
                           </TableCell>
                           <TableCell>
                             <form
-                            method="POST"
+                              method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await downgradeMemberToUser(
