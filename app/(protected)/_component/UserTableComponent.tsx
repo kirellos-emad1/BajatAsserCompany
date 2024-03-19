@@ -30,20 +30,20 @@ export const UserTableComponent = () => {
     query === ""
       ? allUserData
       : allUserData.filter(
-          (user) =>
-            user.name.toLowerCase().includes(query.toLowerCase()) ||
-            user.email.toLowerCase().includes(query.toLowerCase())
-        );
+        (user) =>
+          user.name.toLowerCase().includes(query.toLowerCase()) ||
+          user.email.toLowerCase().includes(query.toLowerCase())
+      );
   const { data: session } = useSession();
 
   useEffect(() => {
     async function getUserData() {
-      const res = await fetch("/api/user-data", {
+      const res = await fetch(`${process.env.BASE_API_URL || ''}/api/user-data`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        cache:'no-store'
+        cache: 'no-store'
       });
       const data = await res.json();
       console.log(data);
