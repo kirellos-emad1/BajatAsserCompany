@@ -96,6 +96,7 @@ export const UserTableComponent = () => {
                         <>
                           <TableCell>
                             <form
+                            method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await deleteUser(user.id);
@@ -116,6 +117,7 @@ export const UserTableComponent = () => {
                           </TableCell>
                           <TableCell>
                             <form
+                            method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await updateUserRoleToMember(
@@ -162,6 +164,7 @@ export const UserTableComponent = () => {
                           </TableCell>
                           <TableCell>
                             <form
+                            method="POST"
                               onSubmit={async (e) => {
                                 e.preventDefault();
                                 await downgradeMemberToUser(
