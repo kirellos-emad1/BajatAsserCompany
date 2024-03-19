@@ -7,7 +7,6 @@ import Link from "next/link";
 import Cars from "@/components/home/Cars";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
 export default async function Home() {
 
   return (
