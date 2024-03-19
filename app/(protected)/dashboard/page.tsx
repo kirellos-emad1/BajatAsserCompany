@@ -2,7 +2,6 @@ import React from "react";
 import { UserTableComponent } from "../_component/UserTableComponent";
 import { SessionProvider } from "next-auth/react";
 import { getAllUsers } from "@/data-access/user";
-import { stringify } from "querystring";
 
 
 const page = async ()  => {
