@@ -1,4 +1,3 @@
-"use client"
 import Nav from "@/components/Nav";
 import Image from "next/image";
 import styles from "./AboutUs.module.css";
