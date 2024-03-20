@@ -40,6 +40,14 @@ const Nav = () => {
             className="flex flex-col items-start mr-5 gap-2 h-full"
           >
             <ul className="text-lg font-medium font-sans">
+              <li>
+                <Link
+                  href="/dashboard"
+                  className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
+                >
+                  المستخدمين
+                </Link>
+              </li>
               <li className="py-2">
                 <Link
                   href="/dashboard/personal-fund-requests"
@@ -109,6 +117,12 @@ const Nav = () => {
         </Button>
       </div>
       <div className="hidden md:flex font-medium  text-md lg:space-x-6 md:space-x-1 font-sans">
+        <Link
+          href="/dashboard"
+          className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
+        >
+          المستخدمين
+        </Link>
         <Link
           href="/dashboard/personal-fund-requests"
           className="text-black/80 lg:mx-6 md:mx-1 hover:text-black"
