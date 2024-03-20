@@ -34,6 +34,7 @@ export const AddCarForm = () => {
   const id = session.data?.user.id!;
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [images, setImages] = useState<FileList | null>(null);
   const [addToMainPage, setAddToMainPage] = useState<boolean>(false);
   const [inStock, setInStock] = useState<boolean>(false);
@@ -44,12 +45,15 @@ export const AddCarForm = () => {
     if (!images) return;
     for (let i = 0; i < images.length; i++) {
       try {
+        setLoading(true)
         const data = await uploadCloudinary(images[i]);
         arr.push(data.url);
       } catch (uploadError) {
+        setLoading(false)
         console.error("Error uploading an image:", uploadError);
       }
     }
+    setLoading(false)
     return arr;
   };
 
@@ -435,7 +439,7 @@ export const AddCarForm = () => {
             <FormSuccess message={success} />
             <Button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || loading}
               className="w-full font-sans "
             >
               اضافه السيارة
