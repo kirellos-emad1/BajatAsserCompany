@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "Bahjat Asser is the leading car broker in Saudi Arabia, established for over 40 years. We specialize in exporting high-quality vehicles to customers in Saudi Arabia .",
   keywords:
     "car broker, car dealership, vehicle export, Saudi Arabia, Bahjat Asser, automotive",
-  authors: [{ name: "Bahjat Asser", url: "https:/www.bahjatasser.com" }],
+  authors: [{ name: "Bahjat Asser", url: "https:/www.bahjat-asser.com" }],
 };
 
 export default function RootLayout({
