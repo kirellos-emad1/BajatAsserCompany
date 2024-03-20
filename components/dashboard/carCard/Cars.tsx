@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { useSession } from "next-auth/react";
 import { deleteCar } from "@/actions/deleteCar";
 import { addCarToMainPage } from "@/actions/addCarToMainPage";
+import { makeMainImage } from "@/actions/makeMainImage";
 import { carAvailability } from "@/actions/carAvailability";
 import { Skeleton } from "@/components/ui/skeleton";
 import { IoCarSport } from "react-icons/io5";
@@ -61,11 +62,8 @@ const Cars = () => {
     getCarsData();
   }, []);
 
-  const changeImage = (delta: number) => {
-    setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex + delta + cars[0].images.length) % cars[0].images.length
-    );
+  const changeImage = (delta: number, car: CarsData) => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + delta + car.images.length) % car.images.length);
   };
   const skeletons = Array.from({ length: 20 }, (_, index) => (
     <div key={index} className="h-[600px] rounded-lg">
@@ -122,20 +120,8 @@ const Cars = () => {
           <CarCardWrapper key={car.id}>
             <div className="relative">
               <div className="w-full h-[300px]">
-                <button
-                  className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  onClick={() => changeImage(-1)}
-                >
-                  <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-                </button>
-                <button
-                  className="absolute w-14 h-14 top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                  onClick={() => changeImage(1)}
-                >
-                  <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-                </button>
                 <Image
-                  src={car.images[currentImageIndex]}
+                  src={car.mainImage}
                   layout="fill"
                   objectFit="cover"
                   className="rounded-t-lg"
@@ -157,14 +143,14 @@ const Cars = () => {
                     <div className="w-full  h-[500px]  ">
                       <button
                         className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                        onClick={() => changeImage(-1)}
-                      >
+                        onClick={() => changeImage(-1, car)}
+                        >
                         <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
                       </button>
                       <button
                         className="absolute w-14 h-14  top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                        onClick={() => changeImage(1)}
-                      >
+                        onClick={() => changeImage(+1, car)}
+                        >
                         <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
                       </button>
                       <Image
@@ -256,7 +242,7 @@ const Cars = () => {
                   {!session?.user ||
                     (session?.user.role !== "USER" && (
                       <DialogFooter>
-                        <div className="flex gap-3 font-sans items-center justify-center">
+                        <div className="grid grid-cols-2">
                           <form
                             onSubmit={async (e) => {
                               e.preventDefault();
@@ -315,6 +301,25 @@ const Cars = () => {
                               </DialogClose>
                             </form>
                           )}
+                          <form
+                              onSubmit={async (e) => {
+                                e.preventDefault();
+                                await makeMainImage(car.id, car.images[currentImageIndex]);
+                                const res = await fetch("/api/cars");
+                                const data = await res.json();
+                                setCars(data);
+                              }}
+                            >
+                              <DialogClose>
+                                <Button
+                                  size="sm"
+                                  className=""
+                                  type="submit"
+                                >
+                                  اجعل هذه الصوره هي صوره الكارت
+                                </Button>
+                              </DialogClose>
+                            </form>
                           {!car.stock ? (
                             <form
                               onSubmit={async (e) => {

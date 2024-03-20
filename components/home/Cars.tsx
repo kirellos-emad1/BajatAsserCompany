@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { CarCardWrapper } from "./CarCardWrapper";
 import Image from "next/image";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 interface CarsData {
   id: string;
   images: [string];
@@ -16,15 +15,16 @@ interface CarsData {
   price: string;
   engineCapacity: string;
   AutomotivePropulsionSystems: string;
-  addToMainPage: string;
-  stock: string;
+  addToMainPage: boolean;
+  stock: boolean;
+  mainImage: string
 }
 
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 const Cars = () => {
   const [cars, setCars] = useState<CarsData[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -43,12 +43,6 @@ const Cars = () => {
     getCarsData();
   }, []);
 
-  const changeImage = (delta: number) => {
-    setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex + delta + cars[0].images.length) % cars[0].images.length
-    );
-  };
   const skeletons = Array.from({ length: 6 }, (_, index) => (
     <div key={index} className="h-[600px] rounded-lg">
       <CarCardWrapper>
@@ -81,23 +75,13 @@ const Cars = () => {
       className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3"
     >
       {cars?.map((car) => (
+        <Link href='/cars'>
         <CarCardWrapper key={car.id}>
           <div className="relative ">
             <div className="w-full h-[300px] ">
-              <button
-                className="absolute w-14 h-14 top-[50%] z-50 left-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                onClick={() => changeImage(-1)}
-              >
-                <BsArrowLeftCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-              </button>
-              <button
-                className="absolute w-14 h-14  top-[50%] z-50 right-2 transform -translate-y-1/2 bg-gray-200/20 rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300"
-                onClick={() => changeImage(1)}
-              >
-                <BsArrowRightCircleFill className="text-center w-14 h-14 text-gray-100/50" />
-              </button>
+     
               <Image
-                src={car.images[currentImageIndex]}
+                src={car.mainImage}
                 layout="fill"
                 objectFit="cover"
                 className="rounded-t-lg "
@@ -118,6 +102,7 @@ const Cars = () => {
             </div>
           </div>
         </CarCardWrapper>
+        </Link>
       ))}
     </section>
   );

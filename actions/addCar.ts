@@ -27,7 +27,8 @@ export const addCar = async (values: z.infer<typeof AddCar>, id: string) => {
             engineCapacity,
             AutomotivePropulsionSystems,
             addToMainPage,
-            stock
+            stock,
+            mainImage:images[0]
         }
     })
 
