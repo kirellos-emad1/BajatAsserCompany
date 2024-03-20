@@ -75,8 +75,8 @@ const Cars = () => {
       className="my-2 mx-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3"
     >
       {cars?.map((car) => (
-        <Link href='/cars'>
-        <CarCardWrapper key={car.id}>
+        <Link href='/cars' key={car.id}>
+        <CarCardWrapper >
           <div className="relative ">
             <div className="w-full h-[300px] ">
      
