@@ -62,6 +62,7 @@ const Footer: React.FC = () => {
             <Link
               href="mailto:asser4cars@gmail.com"
               className="flex items-center justify-center md:justify-start mb-4 text-black/80"
+              rel="البريد الاكتروني الخاص بنا"
             >
               <svg
                 aria-hidden="true"
@@ -83,6 +84,7 @@ const Footer: React.FC = () => {
             <Link
               href="tel:+9660557109911"
               className="flex items-center justify-center md:justify-start mb-4 text-black/80"
+              rel="الهاتف الخاص بنا"
             >
               <svg
                 aria-hidden="true"
@@ -105,6 +107,7 @@ const Footer: React.FC = () => {
               <Link
                 href="https://www.facebook.com/profile.php?id=100087448772006"
                 target="_blank"
+                rel="صفحة الفيس بوك الخاصة بنا"
               >
                 <FaFacebook className="h-8 w-8 text-blue-600" />
               </Link>
@@ -118,6 +121,7 @@ const Footer: React.FC = () => {
               <Link
                 href="https://haraj.com.sa/users/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A8%D9%87%D8%AC%D8%A9%20%D8%B9%D8%B3%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6"
                 target="_blank"
+                rel="رسلنا عبر الواتس اب"
               >
                 <Image
                   src="/haraj.jpg"
@@ -130,6 +134,7 @@ const Footer: React.FC = () => {
               <Link
                 href="https://www.tiktok.com/@bahget_asser?_t=8kb9sfFZCfn&_r=1"
                 target="_blank"
+                rel="حسابنا علي التيك توك"
               >
                 <FaTiktok className="w-8 h-8" />
               </Link>
@@ -146,6 +151,7 @@ const Footer: React.FC = () => {
                 width="200"
                 height="100"
                 style={{ border: "0" }}
+                rel="موقعنا"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
