@@ -40,6 +40,12 @@ export const metadata: Metadata = {
       url: "/logo.jpeg",
     },
   ],
+  verification:
+  {
+    google:'google',
+    yandex: "yandex",
+    yahoo:"yahoo",
+  },
   title: "Bahjat Asser - Premier Car Broker in Saudi Arabia",
   description:
     "Bahjat Asser is the leading car broker in Saudi Arabia, established for over 40 years. We specialize in exporting high-quality vehicles to customers in Saudi Arabia .",
