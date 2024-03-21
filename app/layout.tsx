@@ -6,6 +6,7 @@ import "./globals.css";
 import icon from "./favicon.ico"
 import { SessionProvider } from "next-auth/react";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
       rel: "icon",
       type: "image/jpeg",
       sizes: "32x32",
-      url: "/logo.jpeg",
+      url: "./favicon.ico",
     },
     {
       rel: "icon",
       type: "image/jpeg",
       sizes: "16x16",
-      url: "/logo.jpeg",
+      url: "./favicon.ico",
     },
     {
       rel: "icon",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     {
       rel: "apple-touch-icon",
       sizes: "180x180",
-      url: "/logo.jpeg",
+      url: "./favicon.ico",
     },
   ],
   verification:
