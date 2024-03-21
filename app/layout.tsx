@@ -71,7 +71,7 @@ export default function RootLayout({
       />
       <link
         rel="apple-touch-icon"
-        href="logo.jpeg"
+        href="/logo.jpeg"
         className="w-full h-full rounded-full"
         sizes="any"
       />
