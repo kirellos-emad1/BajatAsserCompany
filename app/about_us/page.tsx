@@ -5,6 +5,56 @@ import { BsEye } from "react-icons/bs";
 import { GiStairsGoal } from "react-icons/gi";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import type { Metadata } from "next";
+import zz from '../../public/logo.jpeg'
+
+export const metadata: Metadata = {
+  icons: [
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "../../public/logo.jpeg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "../../public/logo.jpeg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "../../public/logo.jpeg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "../../public/logo.jpeg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "../../public/logo.jpeg",
+    },
+  ],
+  verification:
+  {
+    google: 'google',
+    yandex: "yandex",
+    yahoo: "yahoo",
+  },
+  title: "Bahjat Asser - عن الشركة",
+  description:
+    "Bahjat Asser is the leading car broker in Saudi Arabia, established for over 40 years. We specialize in selling and funding high-quality vehicles to customers in Saudi Arabia.",
+  keywords:
+    "car broker, car dealership, vehicle export, Saudi Arabia, Bahjat Asser, automotive, بهجت عسير, تمويل سيارات, المملكة العربية السعودية’ سيارات للبيع, تمويل, وسيط سيارات, سيارات, وكالة سياراتو كار بروكر, عن الشركة",
+  authors: [{ name: "Bahjat Asser", url: "https:/www.bahjat-asser.com/cars" }],
+};
+
+
 const page = () => {
   return (
     <main className="">
