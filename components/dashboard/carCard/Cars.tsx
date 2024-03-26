@@ -208,7 +208,7 @@ const Cars = () => {
                     {car.AutomotivePropulsionSystems && (
                       <div dir="rtl" className="flex">
                         <span className="font-bold">
-                          نظام التحكم في الجرس :{" "}
+                          نظام التحكم في الجر :{" "}
                         </span>
                         <p dir="ltr" className="text-right font-sans">
                           {car.AutomotivePropulsionSystems}

@@ -156,10 +156,14 @@ const Footer: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
+            <div className="py-2 text-[10px]">
+              Design and Developed by <Link className=" font-semibold" href="mailto:kirellos0wasfy@gmail.com">Kirellos Wasfy</Link>
+            </div>
           </div>
         </div>
       </div>
-      <div className="text-center p-6 bg-white/30">
+
+      <div className="text-center p-2 bg-white/30">
         <span>© 2023 Copyright:</span>
         <Link className="text-black/80 font-semibold" href="/">
           {" Bahjat Asser"}
