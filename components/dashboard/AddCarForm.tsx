@@ -153,23 +153,13 @@ export const AddCarForm = () => {
                       فئة السيارة
                     </FormLabel>
                     <FormControl>
-                      <Select
-                        dir="rtl"
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <SelectTrigger className="">
-                          <SelectValue
-                            className="w-full"
-                            placeholder="فئة السيارة"
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="ستاندر">ستاندر</SelectItem>
-                          <SelectItem value="نص فل">نص فل</SelectItem>
-                          <SelectItem value="فل كامل">فل كامل</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Input
+                        className=" placeholder:text-right font-sans text-right"
+                        {...field}
+                        placeholder="فئة السيارة"
+                        type="text"
+                        disabled={isPending}
+                      />
                     </FormControl>
                     <FormMessage className="font-sans text-right" />
                   </FormItem>
