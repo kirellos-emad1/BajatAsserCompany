@@ -1,10 +1,55 @@
 import Nav from "@/components/Nav";
-import { getAllCars } from "@/data-access/cars";
 import Image from "next/image";
 import styles from "../about_us/AboutUs.module.css"
 import Cars from "@/components/dashboard/carCard/Cars";
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+  icons: [
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "192x192",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "152x152",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "167x167",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711708729/logo_lfzqra.jpg",
+    }],
+  verification:
+  {
+    google: 'google',
+    yandex: "yandex",
+    yahoo: "yahoo",
+  },
+  title: "بهجة عسير - سيارات للبيع في المملكة العربية السعودية",
+  description:
+    ".استكشف مجموعتنا الواسعة من السيارات الفاخرة المعروضة للبيع في بهجة عسير. جودة عالية وأسعار تنافسية في قلب المملكة",
+  keywords: "سيارات للبيع, السيارات الفاخرة, المملكة العربية السعودية, بهجة عسير, كار بروكر",
+}
 
 
 const page = async () => {

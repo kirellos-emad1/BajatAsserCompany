@@ -4,7 +4,54 @@ import styles from "./AboutUs.module.css";
 import { BsEye } from "react-icons/bs";
 import { GiStairsGoal } from "react-icons/gi";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  icons: [
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "32x32",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    },
+    {
+      rel: "icon",
+      type: "image/jpeg",
+      sizes: "16x16",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "192x192",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "152x152",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "167x167",
+      url: "https://res.cloudinary.com/dcmejeicn/image/upload/v1711678089/logo_qju69s.jpg",
+    }],
+  verification:
+  {
+    google: 'google',
+    yandex: "yandex",
+    yahoo: "yahoo",
+  },
+  title: "عن بهجة عسير - تاريخنا في سوق السيارات السعودي",
+  description:
+    ".تعرف على بهجة عسير، الرائد في سوق السيارات بالمملكة العربية السعودية. مع أكثر من 40 عامًا من الخبرة، نحن نضمن لك الجودة والثقة",
+  keywords: "عن الشركة, بهجة عسير, تاريخ, سوق السيارات, المملكة العربية السعودية",
+}
 
 
 const page = () => {
